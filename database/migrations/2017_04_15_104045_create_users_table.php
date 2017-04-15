@@ -22,7 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('phone')->unique();
             $table->string('email')->nullable()->unique();
             $table->enum('sex', ['male', 'female']);
-            $table->string('dob')->nullable();
+            $table->date('dob')->nullable();
             $table->enum('maritalStatus', ['married', 'single', 'divorced', 'widowed'])->nullable();
             $table->string('address', 225)->nullable();
             $table->string('permanentAddress')->nullable();

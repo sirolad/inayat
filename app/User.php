@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace Inayat;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -15,7 +15,11 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'surname', 'email', 'password',
+        'phone', 'registration', 'firstName',
+        'middleName', 'sex', 'dob', 'maritalStatus',
+        'address', 'permanentAddress', 'occupation',
+        'status', 'image', 'role'
     ];
 
     /**

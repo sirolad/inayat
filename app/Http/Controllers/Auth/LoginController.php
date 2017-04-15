@@ -1,8 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace Inayat\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
+use Inayat\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Inayat\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
@@ -25,7 +29,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/dashboard';
 
     /**
      * Create a new controller instance.
@@ -34,6 +38,24 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest', ['except' => 'logout']);
+        $this->middleware('guest', ['except' => 'logout', 'authenticate']);
+    }
+
+    /**
+     * Handle an authentication attempt.
+     *
+     * @param Request $request
+     *
+     * @return Response
+     */
+    public function authenticate(Request $request)
+    {
+        $phone = $request->input('phone');
+        $password = $request->input('password');
+
+        if (Auth::attempt(['phone' => $phone, 'password' => $password]))
+        {
+            return redirect()->intended('dashboard');
+        }
     }
 }

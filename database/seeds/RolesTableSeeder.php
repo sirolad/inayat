@@ -1,5 +1,6 @@
 <?php
 
+use Inayat\Role;
 use Illuminate\Database\Seeder;
 
 class RolesTableSeeder extends Seeder

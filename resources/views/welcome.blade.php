@@ -16,18 +16,7 @@
         <script type="text/javascript" src="js/script.js"></script>
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @if (Auth::check())
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ url('/login') }}">Login</a>
-                        <a href="{{ url('/register') }}">Register</a>
-                    @endif
-                </div>
-            @endif
-
+        <div class="flex-center position-ref">
             <div class="content">
                 <div class="title">
                     <b>Al-Inayat Credit & Thrift Society</b>
@@ -36,16 +25,17 @@
                 <div class="row">
                 <div class="col-md-12">
                   <section class="login-form">
-                    <form method="post" action="#" role="login">
+                    <form method="post" action="{{ route('login') }}" role="login">
+                      <input type="hidden" name="_token" value="{{ csrf_token() }}">
                       <input type="phone" name="phone" placeholder="Phone Number" required class="form-control input-lg" value="" />
 
-                      <input type="password" class="form-control input-lg" id="password" placeholder="Password" required="" />
+                      <input type="password" class="form-control input-lg" id="password" placeholder="Password" name="password" required="" />
 
 
                       <div class="pwstrength_viewport_progress"></div>
 
 
-                      <button type="submit" name="go" class="btn btn-lg btn-primary btn-block">Sign in</button>
+                      <button type="submit" name="go" class="btn btn-lg btn-primary btn-block">Log in</button>
                       <div>
                          <a href="#">Reset password</a>
                       </div>
