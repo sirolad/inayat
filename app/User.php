@@ -9,6 +9,8 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    const ACTIVE = 1;
+
     /**
      * The attributes that are mass assignable.
      *
@@ -30,4 +32,14 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * Check if logged in user is Admin
+     *
+     * @return bool
+     */
+    public function isAdmin()
+    {
+        return $this->attributes['role'] != Role::MEMBER;
+    }
 }

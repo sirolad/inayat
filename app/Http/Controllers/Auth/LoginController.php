@@ -2,7 +2,6 @@
 
 namespace Inayat\Http\Controllers\Auth;
 
-use Inayat\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -57,5 +56,17 @@ class LoginController extends Controller
         {
             return redirect()->intended('dashboard');
         }
+    }
+
+    /**
+     * Logout Action
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function logout()
+    {
+        Auth::logout();
+
+        return redirect()->route('index');
     }
 }

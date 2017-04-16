@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('surname', 30);
             $table->string('firstName', 30);
             $table->string('middleName', 30);
-            $table->string('phone')->unique();
+            $table->string('phone')->unique()->index();
             $table->string('email')->nullable()->unique();
             $table->enum('sex', ['male', 'female']);
             $table->date('dob')->nullable();
@@ -34,7 +34,10 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
 
-            $table->foreign('role')->references('id')->on('roles');
+            $table->foreign('role')->references('id')
+                ->on('roles')->
+                onUpdate('cascade')
+            ->onDelete('cascade');
         });
     }
 

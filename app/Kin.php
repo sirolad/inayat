@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Kin extends Model
 {
     protected $fillable = [
-        'name', 'relationship', 'address', 'phone', 'memberId'
+        'name', 'relationship', 'kin-address', 'kin-phone', 'memberId'
     ];
 }

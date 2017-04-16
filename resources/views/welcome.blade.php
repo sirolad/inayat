@@ -19,7 +19,7 @@
         <div class="flex-center position-ref">
             <div class="content">
                 <div class="title">
-                    <b>Al-Inayat Credit & Thrift Society</b>
+                    <b>Al-Inayat Multi-purpose Relief Investment </b>
                 </div>
 
                 <div class="row">
