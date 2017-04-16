@@ -18,7 +18,7 @@ Route::get('/', function () {
 Route::post('/login', 'Auth\LoginController@authenticate')->name('login');
 Route::get('/dashboard', 'UsersController@index')->name('dashboard');
 Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
-Route::get('/edit-profile', 'UsersController@editProfile')->name('edit.profile')
+Route::get('/edit-profile', 'UsersController@editProfile')->name('edit.profile');
 
 Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function () {
     Route::get('/', 'AdminController@index')->name('admin.index');

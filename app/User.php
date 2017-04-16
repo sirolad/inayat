@@ -42,4 +42,9 @@ class User extends Authenticatable
     {
         return $this->attributes['role'] != Role::MEMBER;
     }
+
+    public function fullName()
+    {
+        return $this->getAttribute('firstName') . ' ' . $this->getAttribute('surname');
+    }
 }

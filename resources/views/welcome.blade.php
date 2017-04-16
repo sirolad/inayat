@@ -25,9 +25,10 @@
                 <div class="row">
                 <div class="col-md-12">
                   <section class="login-form">
+                      @include('layout.alerts');
                     <form method="post" action="{{ route('login') }}" role="login">
                       <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                      <input type="phone" name="phone" placeholder="Phone Number" required class="form-control input-lg" value="" />
+                      <input type="tel" name="phone" placeholder="Phone Number" required class="form-control input-lg" value="" />
 
                       <input type="password" class="form-control input-lg" id="password" placeholder="Password" name="password" required="" />
 
