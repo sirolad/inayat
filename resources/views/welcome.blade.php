@@ -38,7 +38,7 @@
 
                       <button type="submit" name="go" class="btn btn-lg btn-primary btn-block">Log in</button>
                       <div>
-                         <a href="#">Reset password</a>
+                         <a href="#">Forgot password</a>
                       </div>
 
                     </form>
