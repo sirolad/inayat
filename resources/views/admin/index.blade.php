@@ -2,7 +2,28 @@
 @section('content')
 <div class="container">
     <div class="jumbotron">
-
+        <h3>Admin Dashboard</h3>
+        @include('layout.alerts')
+        <div class="row">
+            <div class="col-md-4">
+                <div class="panel panel-info">
+                    <div class="panel-heading">Total Members</div>
+                    <div class="panel-body">{{ count($user) . ' Active Users' }}</div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="panel panel-info">
+                    <div class="panel-heading">Total Transactions</div>
+                    <div class="panel-body">Panel Content</div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="panel panel-info">
+                    <div class="panel-heading">Total Transactions</div>
+                    <div class="panel-body">Panel Content</div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 @endsection

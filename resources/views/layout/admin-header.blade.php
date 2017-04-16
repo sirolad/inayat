@@ -4,7 +4,7 @@
             <a class="navbar-brand" href="{{ route('admin.index') }}">Al-inayat</a>
         </div>
         <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
+            <li class="active"><a href="{{ route('admin.index') }}">Admin Dashboard</a></li>
             <li><a href="{{ route('admin.create') }}">Create Account</a></li>
             <li><a href="#">Page 2</a></li>
         </ul>
@@ -15,6 +15,7 @@
             <button type="submit" class="btn btn-default">Submit</button>
         </form>
         <ul class="nav navbar-nav navbar-right">
+            <li><a>{{ 'Administrator' }}</a></li>
             <li><a href="{{ route('logout') }}"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>
         </ul>
     </div>

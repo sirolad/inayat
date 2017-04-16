@@ -3,6 +3,7 @@
 <div class="container">
     <div class="jumbotron">
         <h3>Membership Registration Form</h3>
+        @include('layout.alerts')
         <br>
         <h4>Personal Details</h4>
         <form class="form-inline" method="post" action="{{ route('admin.post') }}">
