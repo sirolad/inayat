@@ -55,6 +55,6 @@ class User extends Authenticatable
 
     public function kins()
     {
-        return $this->hasOne('Inayat\Role');
+        return $this->hasOne('Inayat\Kin');
     }
 }

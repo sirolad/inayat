@@ -19,10 +19,10 @@ class CreateNextOfKin extends Migration
             $table->string('relationship');
             $table->string('kin_address', 225);
             $table->integer('kin_phone');
-            $table->integer('memberId');
+            $table->integer('user_id');
             $table->timestamps();
 
-            $table->foreign('memberId')->references('id')->on('users')
+            $table->foreign('user_id')->references('id')->on('users')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
         });

@@ -58,9 +58,9 @@ class AdminController extends Controller
         $kin->relationship = $request->input('relationship');
         $kin->kin_address = $request->input('kin-address');
         $kin->kin_phone = $request->input('kin-phone');
-        $kin->memberId = $user->getAttribute('id');
+        $kin->user_id = $user->getAttribute('id');
         $kin->save();
 
-        return redirect('admin.index')->with('info', 'Member Account Successfully Created!');
+        return redirect('/admin')->with('success', 'Member Account Successfully Created!');
     }
 }
