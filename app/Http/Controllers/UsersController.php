@@ -2,8 +2,10 @@
 
 namespace Inayat\Http\Controllers;
 
+use Inayat\Kin;
 use Inayat\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
 class UsersController extends Controller
@@ -32,7 +34,7 @@ class UsersController extends Controller
     public function editProfile(Request $request)
     {
         $currentUser = User::where('phone', '=', Auth::user()->phone);
-        $user = new User();
+        $user = User::find(Auth::user()->getAuthIdentifier());
 
         if (($currentUser)->exists()) {
             $user->surname = $request->input('surname');
@@ -49,5 +51,29 @@ class UsersController extends Controller
         }
 
         return redirect('/edit-profile')->with('danger', 'There was an Error. Update failed.');
+    }
+
+    public function changePassword()
+    {
+
+    }
+
+    public function uploadImage()
+    {
+
+    }
+
+    public function updateKin(Request $request)
+    {
+        $nextKin = Kin::where('user_id', Auth::user()->getAuthIdentifier())->first();
+//        $nextKin = DB::table('kins')->where('user_id', Auth::user()->getAuthIdentifier())->first();
+
+        $nextKin->name = $request->input('name');
+        $nextKin->relationship = $request->input('relationship');
+        $nextKin->kin_phone = $request->input('kin-phone');
+        $nextKin->kin_address = $request->input('kin-address');
+        $nextKin->save();
+
+        return redirect('/edit-profile')->with('success', 'Next of Kin Info Updated Successfully');
     }
 }

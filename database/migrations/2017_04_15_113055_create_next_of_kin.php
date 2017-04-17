@@ -18,7 +18,7 @@ class CreateNextOfKin extends Migration
             $table->string('name');
             $table->string('relationship');
             $table->string('kin_address', 225);
-            $table->integer('kin_phone');
+            $table->bigInteger('kin_phone');
             $table->integer('user_id');
             $table->timestamps();
 

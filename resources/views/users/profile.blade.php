@@ -81,7 +81,7 @@
                 </div>
             </form>
             {{--Update Next of Kin Form--}}
-            <form class="form-inline" method="post" action="">
+            <form class="form-inline" method="post" action="{{ route('edit.kin') }}">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <hr class="style2">
                 <h4>Next of Kin</h4>
@@ -122,13 +122,13 @@
                 </div>
             </form>
             {{--Change Password--}}
-            <form class="form-inline" method="post" action="">
+            <form class="form-inline" method="post" action="{{ route('edit.password') }}">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <hr class="style2">
                 <h4>Change Password</h4>
             </form>
             {{--Upload Picture--}}
-            <form class="form-inline" method="post" action="">
+            <form class="form-inline" method="post" action="{{ route('upload.image') }}">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <hr class="style2">
                 <h4>Upload Picture</h4>
