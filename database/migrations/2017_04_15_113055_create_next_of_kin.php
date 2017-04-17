@@ -35,6 +35,10 @@ class CreateNextOfKin extends Migration
      */
     public function down()
     {
+        Schema::table('kins', function (Blueprint $table) {
+            $table->dropForeign(['user_id']);
+        });
+
         Schema::dropIfExists('kins');
     }
 }

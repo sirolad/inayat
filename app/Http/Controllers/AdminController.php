@@ -49,7 +49,7 @@ class AdminController extends Controller
         $user->occupation = $request->input('occupation');
         $user->status = User::ACTIVE;
         $user->image = 'avatar.jpg';
-        $user->password = Hash::make('NewPasswordO1');
+        $user->password = Hash::make('NewPassword01');
         $user->role = Role::MEMBER;
         $user->save();
 

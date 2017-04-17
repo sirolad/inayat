@@ -35,7 +35,6 @@ class UsersController extends Controller
         $user = new User();
 
         if (($currentUser)->exists()) {
-            $user->registration = Auth::user()->registration;
             $user->surname = $request->input('surname');
             $user->firstName = $request->input('first-name');
             $user->middleName = $request->input('middle-name');

@@ -15,10 +15,10 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('registration')->unique();
-            $table->string('surname', 30);
-            $table->string('firstName', 30);
-            $table->string('middleName', 30);
+            $table->integer('registration')->unique()->nullable();
+            $table->string('surname', 30)->nullable();
+            $table->string('firstName', 30)->nullable();
+            $table->string('middleName', 30)->nullable();
             $table->string('phone')->unique()->index();
             $table->string('email')->nullable()->unique();
             $table->enum('sex', ['male', 'female'])->nullable();
@@ -48,10 +48,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::table('kins', function (Blueprint $table) {
-            $table->dropForeign(['user_id']);
-        });
-
         Schema::table('users', function (Blueprint $table) {
             $table->dropForeign(['role']);
         });

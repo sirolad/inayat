@@ -6,7 +6,9 @@
         <ul class="nav navbar-nav">
             <li class="active"><a href="{{ route('edit.profile') }}">Edit Profile</a></li>
             <li><a href="#">Transactions</a></li>
+            @can('admin-can-see')
             <li><a href="{{ route('admin.index') }}">Manage Users</a></li>
+            @endcan
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <li><a><img class="avatar1" src="{{ 'image/' . Auth::user()->image }}" > {{ Auth::user()->fullName() }}</a></li>
