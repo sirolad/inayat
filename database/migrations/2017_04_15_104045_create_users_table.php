@@ -48,6 +48,14 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
+        Schema::table('kins', function (Blueprint $table) {
+            $table->dropForeign(['memberId']);
+        });
+
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropForeign(['role']);
+        });
+
         Schema::dropIfExists('users');
     }
 }

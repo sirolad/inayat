@@ -22,7 +22,7 @@ class CreateNextOfKin extends Migration
             $table->integer('memberId');
             $table->timestamps();
 
-            $table->foreign('memberId')->references('registration')->on('users')
+            $table->foreign('memberId')->references('id')->on('users')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
         });
@@ -35,6 +35,6 @@ class CreateNextOfKin extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('kin');
+        Schema::dropIfExists('kins');
     }
 }

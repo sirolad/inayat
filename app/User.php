@@ -43,8 +43,18 @@ class User extends Authenticatable
         return $this->attributes['role'] != Role::MEMBER;
     }
 
+    /**
+     * Get User's fullName
+     *
+     * @return string
+     */
     public function fullName()
     {
         return $this->getAttribute('firstName') . ' ' . $this->getAttribute('surname');
+    }
+
+    public function kins()
+    {
+        return $this->hasOne('Inayat\Role');
     }
 }

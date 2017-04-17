@@ -32,7 +32,7 @@ class AdminController extends Controller
         $user = new User();
 
         if (User::where('phone', '=', $request->get('phone'))->exists()) {
-            return Redirect::back()-with('warning', 'Member Already exists');
+            return Redirect::back()->with('warning', 'Member Already exists');
         }
 
         $user->registration = $request->input('registration');
@@ -58,9 +58,9 @@ class AdminController extends Controller
         $kin->relationship = $request->input('relationship');
         $kin->kin_address = $request->input('kin-address');
         $kin->kin_phone = $request->input('kin-phone');
-        $kin->memberId = $request->input('registration');
+        $kin->memberId = $user->getAttribute('id');
         $kin->save();
 
-        return redirect('admin.index')-with('info', 'Member Account Successfully Created!');
+        return redirect('admin.index')->with('info', 'Member Account Successfully Created!');
     }
 }
