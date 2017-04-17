@@ -9,7 +9,7 @@
                 <b>Name</b><p>{{ $user->fullName() }}</p>
             </div>
             <div class="col-md-3 form-inline">
-                <b>Phone Number</b><p>{{ '0' . $user->phone }}</p>
+                <b>Phone Number</b><p>{{ $user->phone }}</p>
             </div>
             <div class="col-md-3 form-inline">
                 <b>Membership Number</b><p>{{ $user->registration }}</p>
@@ -26,10 +26,12 @@
                 <b>Occupation</b><p>{{ $user->occupation }}</p>
             </div>
             <div class="col-md-3 form-inline">
-                <b>Marital Status</b><p>{{ $user->mariatalStatus }}</p>
+                <b>Marital Status</b><p>{{ $user->maritalStatus }}</p>
             </div>
             <div class="col-md-3 form-inline">
-                <b>Next of Kin</b><p>{{ $user->kins->name }}</p>
+                @if($user->kins)
+                    <b>Next of Kin</b><p>{{ $user->kins->name }}</p>
+                @endif
             </div>
         </div>
     </div>

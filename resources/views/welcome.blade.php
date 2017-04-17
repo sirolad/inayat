@@ -14,6 +14,7 @@
 
         <script type="text/javascript" src="js/app.js" ></script>
         <script type="text/javascript" src="js/script.js"></script>
+        <script type="text/javascript" src="{{ asset('js/inayat.js') }}"
     </head>
     <body>
         <div class="flex-center position-ref">

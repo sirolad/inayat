@@ -21,16 +21,16 @@ class CreateUsersTable extends Migration
             $table->string('middleName', 30);
             $table->string('phone')->unique()->index();
             $table->string('email')->nullable()->unique();
-            $table->enum('sex', ['male', 'female']);
+            $table->enum('sex', ['male', 'female'])->nullable();
             $table->date('dob')->nullable();
             $table->enum('maritalStatus', ['married', 'single', 'divorced', 'widowed'])->nullable();
             $table->string('address', 225)->nullable();
             $table->string('permanentAddress')->nullable();
             $table->string('occupation')->nullable();
-            $table->string('status');
+            $table->string('status')->nullable();
             $table->string('image')->nullable();
-            $table->string('password');
-            $table->integer('role');
+            $table->string('password')->nullable();
+            $table->integer('role')->nullable();
             $table->rememberToken();
             $table->timestamps();
 

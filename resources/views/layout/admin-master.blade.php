@@ -13,7 +13,9 @@
 
 @yield('content')
 
-<script type="text/javascript" src="js/app.js" ></script>
+<script type="text/javascript" src="{{ asset('js/script.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/inayat.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/app.js') }}" ></script>
 <script src="https://use.fontawesome.com/08f92b851e.js"></script>
 </body>
 </html>

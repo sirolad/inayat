@@ -6,7 +6,7 @@
         <ul class="nav navbar-nav">
             <li class="active"><a href="{{ route('admin.index') }}">Admin Dashboard</a></li>
             <li><a href="{{ route('admin.create') }}">Create Account</a></li>
-            <li><a href="#">Page 2</a></li>
+            <li><a href="{{ route('admin.members') }}">View Members</a></li>
         </ul>
         <form class="navbar-form navbar-left">
             <div class="form-group">

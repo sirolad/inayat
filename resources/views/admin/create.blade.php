@@ -11,7 +11,7 @@
             <div class="form-group">
                 <label for="registration" class="col-4 col-form-label">Registration Id</label>
                 <div class="col-10">
-                    <input class="form-control" type="text" value="" id="" name="registration">
+                    <input class="form-control" type="tel" value="" id="" name="registration">
                 </div>
             </div>
             <div class="form-group">

@@ -63,4 +63,11 @@ class AdminController extends Controller
 
         return redirect('/admin')->with('success', 'Member Account Successfully Created!');
     }
+
+    public function getMembers()
+    {
+        $members = User::all();
+
+        return view('admin.members', compact('members'));
+    }
 }
