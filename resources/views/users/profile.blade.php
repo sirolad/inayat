@@ -80,8 +80,10 @@
                     </div>
                 </div>
             </form>
-            <form class="form-inline">
-                <hr class="">
+            {{--Update Next of Kin Form--}}
+            <form class="form-inline" method="post" action="">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                <hr class="style2">
                 <h4>Next of Kin</h4>
                 <div class="form-group">
                     <label for="kin-name" class="col-4 col-form-label">Name</label>
@@ -107,6 +109,29 @@
                         <input class="form-control" type="tel" value="{{ Auth::user()->kins->kin_phone }}" id="" name="kin-phone">
                     </div>
                 </div>
+                <hr>
+                <div class="form-group row">
+                    <div class="offset-sm-2 col-sm-10">
+                        <button type="submit" class="btn btn-primary">Update</button>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="offset-sm-2 col-sm-10">
+                        <button type="reset" class="btn btn-default">Reset</button>
+                    </div>
+                </div>
+            </form>
+            {{--Change Password--}}
+            <form class="form-inline" method="post" action="">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                <hr class="style2">
+                <h4>Change Password</h4>
+            </form>
+            {{--Upload Picture--}}
+            <form class="form-inline" method="post" action="">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                <hr class="style2">
+                <h4>Upload Picture</h4>
             </form>
         </div>
     </div>

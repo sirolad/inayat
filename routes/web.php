@@ -20,6 +20,9 @@ Route::get('/dashboard', 'UsersController@index')->name('dashboard');
 Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 Route::get('/edit-profile', 'UsersController@viewProfile')->name('view.profile');
 Route::post('/edit-profile', 'UsersController@editProfile')->name('edit.profile');
+Route::post('/change-password', 'UsersController@changePassword')->name('edit.password');
+Route::post('/upload-image', 'UsersController@uploadImage')->name('upload.image');
+Route::post('/update-kin', 'UsersController@updateKin')->name('edit.kin');
 
 Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function () {
     Route::get('/', 'AdminController@index')->name('admin.index');
