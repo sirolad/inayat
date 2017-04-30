@@ -23,6 +23,7 @@ Route::post('/edit-profile', 'UsersController@editProfile')->name('edit.profile'
 Route::post('/change-password', 'UsersController@changePassword')->name('edit.password');
 Route::post('/upload-image', 'UsersController@uploadImage')->name('upload.image');
 Route::post('/update-kin', 'UsersController@updateKin')->name('edit.kin');
+Route::get('/transaction', 'UsersController@showTransaction')->name('show.payment');
 
 Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function () {
     Route::get('/', 'AdminController@index')->name('admin.index');

@@ -17,12 +17,13 @@ class UsersTableSeeder extends Seeder
         $user->surname = "Akande";
         $user->firstName = "Suraj";
         $user->middleName = "Adeyemi";
-        $user->phone = 8037690966;
+        $user->phone = '08037690966';
         $user->password = Hash::make(12345678);
         $user->registration = 234994234;
         $user->sex = "male";
         $user->status = 1;
         $user->role = 2;
+        $user->image= 'avatar.jpg';
         $user->save();
     }
 }

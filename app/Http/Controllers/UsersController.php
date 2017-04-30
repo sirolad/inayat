@@ -63,10 +63,13 @@ class UsersController extends Controller
 
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function updateKin(Request $request)
     {
         $nextKin = Kin::where('user_id', Auth::user()->getAuthIdentifier())->first();
-//        $nextKin = DB::table('kins')->where('user_id', Auth::user()->getAuthIdentifier())->first();
 
         $nextKin->name = $request->input('name');
         $nextKin->relationship = $request->input('relationship');
@@ -75,5 +78,10 @@ class UsersController extends Controller
         $nextKin->save();
 
         return redirect('/edit-profile')->with('success', 'Next of Kin Info Updated Successfully');
+    }
+
+    public function showTransaction()
+    {
+        return view('users.payment');
     }
 }
