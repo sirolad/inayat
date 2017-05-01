@@ -24,6 +24,7 @@ Route::post('/change-password', 'UsersController@changePassword')->name('edit.pa
 Route::post('/upload-image', 'UsersController@uploadImage')->name('upload.image');
 Route::post('/update-kin', 'UsersController@updateKin')->name('edit.kin');
 Route::get('/transaction', 'UsersController@showTransaction')->name('show.payment');
+Route::post('/transaction', 'UsersController@makeTransaction')->name('make.payment');
 
 Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function () {
     Route::get('/', 'AdminController@index')->name('admin.index');

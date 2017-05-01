@@ -14,13 +14,13 @@
             <div class="col-md-4">
                 <div class="panel panel-info">
                     <div class="panel-heading">Total Transactions</div>
-                    <div class="panel-body">Panel Content</div>
+                    <div class="panel-body">{{ count($totalTransactions) . ' Transactions' }}</div>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="panel panel-info">
                     <div class="panel-heading">Pending Transactions</div>
-                    <div class="panel-body">Panel Content</div>
+                    <div class="panel-body">{{ count($pendingTransactions) . ' Pending Transactions' }}</div>
                 </div>
             </div>
         </div>

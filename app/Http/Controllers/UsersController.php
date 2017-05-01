@@ -2,19 +2,24 @@
 
 namespace Inayat\Http\Controllers;
 
+use Inayat\Account;
 use Inayat\Kin;
 use Inayat\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
 class UsersController extends Controller
 {
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function index()
     {
         $user = Auth::user();
 
-        return view('users.index', compact('user'));
+        $transactions = Account::where('user_id', '=', Auth::user()->getAuthIdentifier())->get();
+
+        return view('users.index', compact('user', 'transactions'));
     }
 
     /**
@@ -80,8 +85,33 @@ class UsersController extends Controller
         return redirect('/edit-profile')->with('success', 'Next of Kin Info Updated Successfully');
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function showTransaction()
     {
         return view('users.payment');
+    }
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function makeTransaction(Request $request)
+    {
+        try {
+            $pay = new Account();
+            $pay->user_id = Auth::user()->getAuthIdentifier();
+            $pay->amount = $request->input('amount');
+            $pay->reference = $request->input('reference');
+            $pay->transaction = $request->input('payment');
+            $pay->status = Account::STATUS_PENDING;
+            $pay->type = Account::TYPE_CREDIT;
+            $pay->save();
+
+            return redirect('/transaction')->with('success', 'Transaction Registered');
+        } catch (\Exception $e) {
+            return redirect('/transaction')->with('danger', 'Transaction Failed');
+        }
     }
 }

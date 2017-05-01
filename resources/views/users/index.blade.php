@@ -37,6 +37,11 @@
     </div>
     <div class="jumbotron">
         <h3>Transaction History</h3>
+        @if($transactions)
+            @include('layout.table')
+        @else
+            <p>No Transaction Yet!</p>
+        @endif
     </div>
 </div>
 @endsection

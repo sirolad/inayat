@@ -22,7 +22,7 @@ class CreateAccountsTable extends Migration
                 'savings', 'commodity', 'loans', 'ramadan', 'ileya',
                 'education', 'special_savings', 'admin_charges'
             ]);
-            $table->enum('status', ['active', 'pending']);
+            $table->enum('status', ['active', 'pending', 'declined']);
             $table->enum('type', ['credit', 'debit']);
             $table->timestamps();
 

@@ -2,6 +2,7 @@
 
 namespace Inayat\Http\Controllers;
 
+use Inayat\Account;
 use Inayat\Kin;
 use Inayat\Role;
 use Inayat\User;
@@ -16,12 +17,21 @@ class AdminController extends Controller
         $this->middleware('admin');
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function  index()
     {
         $user = User::all();
-        return view('admin.index', compact('user'));
+        $pendingTransactions = Account::where('status', '=', Account::STATUS_PENDING)->get();
+        $totalTransactions = Account::all();
+
+        return view('admin.index', compact('user', 'pendingTransactions', 'totalTransactions'));
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function showAccount()
     {
         return view('admin.create');
