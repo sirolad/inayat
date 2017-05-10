@@ -23,10 +23,10 @@ class AdminController extends Controller
     public function  index()
     {
         $user = User::all();
-        $pendingTransactions = Account::where('status', '=', Account::STATUS_PENDING)->get();
+        $transactions = Account::where('status', '=', Account::STATUS_PENDING)->get();
         $totalTransactions = Account::all();
 
-        return view('admin.index', compact('user', 'pendingTransactions', 'totalTransactions'));
+        return view('admin.index', compact('user', 'transactions', 'totalTransactions'));
     }
 
     /**
@@ -37,6 +37,10 @@ class AdminController extends Controller
         return view('admin.create');
     }
 
+    /**
+     * @param Request $request
+     * @return mixed
+     */
     public function createAccount(Request $request)
     {
         $user = new User();
@@ -83,5 +87,31 @@ class AdminController extends Controller
         $members = User::all();
 
         return view('admin.members', compact('members'));
+    }
+
+    public function verify($id)
+    {
+        $transaction = Account::findOrFail($id);
+        if ($transaction) {
+            $transaction->status = Account::STATUS_ACTIVE;
+            $transaction->save();
+
+            return ['status_code' => 200, 'message' => 'Course deleted successfully'];
+        }
+
+        return ['message' => 'The Operation Failed'];
+    }
+
+    public function decline($id)
+    {
+        $transaction = Account::findOrFail($id);
+        if ($transaction) {
+            $transaction->status = Account::STATUS_DECLINED;
+            $transaction->save();
+
+            return ['status_code' => 200, 'message' => 'Course deleted successfully'];
+        }
+
+        return ['message' => 'The Operation Failed'];
     }
 }

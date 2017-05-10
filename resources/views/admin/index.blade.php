@@ -20,10 +20,16 @@
             <div class="col-md-4">
                 <div class="panel panel-info">
                     <div class="panel-heading">Pending Transactions</div>
-                    <div class="panel-body">{{ count($pendingTransactions) . ' Pending Transactions' }}</div>
+                    <div class="panel-body" id="counting">{{ count($transactions) . ' Pending Transactions' }}</div>
                 </div>
             </div>
         </div>
+        <h3>Pending Transactions</h3>
+        @if($transactions)
+            @include('layout.admin-table')
+        @else
+            <p>No Transaction As At Now!</p>
+        @endif
     </div>
 </div>
 @endsection

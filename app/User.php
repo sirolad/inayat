@@ -57,4 +57,9 @@ class User extends Authenticatable
     {
         return $this->hasOne('Inayat\Kin');
     }
+
+    public function accounts()
+    {
+        return $this->hasMany('Inayat\Account');
+    }
 }

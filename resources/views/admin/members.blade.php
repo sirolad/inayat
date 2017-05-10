@@ -34,6 +34,8 @@
                     <td>{{ $member->created_at }}</td>
                     @if($member->kins)
                     <td>{{ $member->kins->name }}</td>
+                    @else
+                        <td></td>
                     @endif
                 </tr>
                 </tbody>
