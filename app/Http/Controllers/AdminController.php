@@ -145,4 +145,11 @@ class AdminController extends Controller
 
         return view('users.index', compact('user', 'transactions'));
     }
+
+    public function showTransaction($id)
+    {
+        $user = User::findOrFail($id);
+
+        return view('admin.payment', compact('user'));
+    }
 }

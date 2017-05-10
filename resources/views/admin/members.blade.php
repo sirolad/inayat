@@ -38,7 +38,7 @@
                     @else
                         <td></td>
                     @endif
-                    <td><button class="btn btn-primary">Transact</button></td>
+                    <td><a href="{{ route('show.transaction', $member->id) }}" class="btn btn-primary">Transact</a></td>
                 </tr>
                 </tbody>
                 @endforeach
