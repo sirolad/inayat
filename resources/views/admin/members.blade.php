@@ -17,6 +17,7 @@
                     <th>Marital Status</th>
                     <th>Registration Date</th>
                     <th>Next of Kin</th>
+                    <th>Actions</th>
                 </tr>
                 </thead>
                 @foreach($members as $member)
@@ -37,6 +38,7 @@
                     @else
                         <td></td>
                     @endif
+                    <td><button class="btn btn-primary">Transact</button></td>
                 </tr>
                 </tbody>
                 @endforeach

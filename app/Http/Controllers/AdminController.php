@@ -25,9 +25,13 @@ class AdminController extends Controller
     {
         $user = User::all();
         $transactions = Account::where('status', '=', Account::STATUS_PENDING)->get();
+        $credits = Account::where('type', 'credit')->where('status', Account::STATUS_ACTIVE);
+        $credit = $credits->sum('amount');
+        $debits = Account::where('type', 'debit')->where('status', Account::STATUS_ACTIVE);
+        $debit = $debits->sum('amount');
         $totalTransactions = Account::all();
 
-        return view('admin.index', compact('user', 'transactions', 'totalTransactions'));
+        return view('admin.index', compact('user', 'transactions', 'totalTransactions', 'credit', 'debit'));
     }
 
     /**
@@ -127,11 +131,16 @@ class AdminController extends Controller
 
         return ['message' => 'The Operation Failed'];
     }
-    
+
+    /**
+     * View Member's page
+     *
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function viewMembers($id)
     {
         $user = User::where('registration', $id)->first();
-
         $transactions = Account::where('user_id', '=', $user->id)->get();
 
         return view('users.index', compact('user', 'transactions'));

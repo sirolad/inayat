@@ -24,6 +24,26 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="panel panel-info">
+                    <div class="panel-heading">Total Credits</div>
+                    <div class="panel-body">{{ 'N' . number_format($credit) }}</div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="panel panel-info">
+                    <div class="panel-heading">Total Debits</div>
+                    <div class="panel-body">{{ 'N' . number_format($debit) }}</div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="panel panel-info">
+                    <div class="panel-heading">Something Here</div>
+                    <div class="panel-body" id="counting">Right Here</div>
+                </div>
+            </div>
+        </div>
         <h3>Pending Transactions</h3>
         @if($transactions)
             @include('layout.admin-table')
