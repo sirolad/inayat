@@ -18,7 +18,7 @@
             <tbody>
             <tr class="info" id="row{{ $transaction->id }}">
                 <td>&nbsp;</td>
-                <td>{{ $transaction->users }}</td>
+                <td>{{ $transaction->user->fullName() }}</td>
                 <td>{{ number_format($transaction->amount) }}</td>
                 <td>{{ $transaction->reference }}</td>
                 <td>{{ ucfirst($transaction->transaction) }}</td>

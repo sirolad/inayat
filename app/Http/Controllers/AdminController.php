@@ -2,6 +2,7 @@
 
 namespace Inayat\Http\Controllers;
 
+use Bugsnag\BugsnagLaravel\Facades\Bugsnag;
 use Inayat\Account;
 use Inayat\Kin;
 use Inayat\Role;
@@ -89,6 +90,12 @@ class AdminController extends Controller
         return view('admin.members', compact('members'));
     }
 
+    /**
+     * Verify Credit Transaction
+     * 
+     * @param $id
+     * @return array
+     */
     public function verify($id)
     {
         $transaction = Account::findOrFail($id);
@@ -102,6 +109,12 @@ class AdminController extends Controller
         return ['message' => 'The Operation Failed'];
     }
 
+    /**
+     * Decline Credit Transaction
+     * 
+     * @param $id
+     * @return array
+     */
     public function decline($id)
     {
         $transaction = Account::findOrFail($id);
@@ -113,5 +126,14 @@ class AdminController extends Controller
         }
 
         return ['message' => 'The Operation Failed'];
+    }
+    
+    public function viewMembers($id)
+    {
+        $user = User::where('registration', $id)->first();
+
+        $transactions = Account::where('user_id', '=', $user->id)->get();
+
+        return view('users.index', compact('user', 'transactions'));
     }
 }

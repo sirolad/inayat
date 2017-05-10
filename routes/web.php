@@ -33,4 +33,5 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function () {
     Route::get('/members', 'AdminController@getMembers')->name('admin.members');
     Route::post('/verify-transaction/{id}', 'AdminController@verify')->name('admin.verify');
     Route::post('/decline-transaction/{id}', 'AdminController@decline')->name('admin.decline');
+    Route::get('/view-member/{id}', 'AdminController@viewMembers')->name('admin.view');
 });

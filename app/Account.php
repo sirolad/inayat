@@ -20,7 +20,7 @@ class Account extends Model
      * Relationship with Users
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function users()
+    public function user()
     {
         return $this->belongsTo('Inayat\User');
     }

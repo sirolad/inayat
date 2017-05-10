@@ -58,7 +58,11 @@ class User extends Authenticatable
         return $this->hasOne('Inayat\Kin');
     }
 
-    public function accounts()
+    /**
+     * One to Many Relationship
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function account()
     {
         return $this->hasMany('Inayat\Account');
     }

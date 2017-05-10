@@ -24,7 +24,7 @@
                 <tr class="info">
                     <td>{{ $member->id }}</td>
                     <td>{{ $member->registration }}</td>
-                    <td>{{ $member->surname . ' ' . $member->firstName }}</td>
+                    <td><a href="{{ route('admin.view', $member->registration) }}">{{ $member->fullName() }}</a></td>
                     <td>{{ $member->phone }}</td>
                     <td>{{ $member->email }}</td>
                     <td>{{ $member->permanentAddress }}</td>
