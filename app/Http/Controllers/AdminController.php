@@ -146,10 +146,35 @@ class AdminController extends Controller
         return view('users.index', compact('user', 'transactions'));
     }
 
+    /**
+     * Get form to make transaction for members
+     *
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function showTransaction($id)
     {
         $user = User::findOrFail($id);
 
         return view('admin.payment', compact('user'));
+    }
+
+    public function makeTransaction(Request $request,$id)
+    {
+        try {
+            $pay = new Account();
+            $pay->user_id = $id;
+            $pay->amount = $request->input('amount');
+            $pay->reference = $request->input('reference');
+            $pay->transaction = $request->input('payment');
+            $pay->status = Account::STATUS_ACTIVE;
+            $pay->type = $request->input('type');
+            $pay->save();
+
+            return redirect('/admin/members')->with('success', 'Transaction Registered');
+        } catch (\Exception $e) {
+            Bugsnag::notifyException($e);
+            return back()->with('danger', 'Transaction Failed');
+        }
     }
 }

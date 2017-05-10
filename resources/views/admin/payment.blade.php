@@ -5,7 +5,7 @@
             <h3>Register a Transaction For {{ $user->fullName() }}</h3>
             @include('layout.alerts')
             {{--Transaction Form--}}
-            <form class="form-horizontal" method="post" action="{{ route('admin.transaction') }}">
+            <form class="form-horizontal" method="post" action="{{ route('admin.transaction', $user->id) }}">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <div class="form-group">
                     <label for="reference" class="col-4 col-form-label">Reference</label>

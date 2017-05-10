@@ -7,6 +7,7 @@ use Inayat\Kin;
 use Inayat\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Bugsnag\BugsnagLaravel\Facades\Bugsnag;
 
 class UsersController extends Controller
 {
@@ -94,6 +95,8 @@ class UsersController extends Controller
     }
 
     /**
+     * Make Transaction
+     *
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse
      */
@@ -111,6 +114,7 @@ class UsersController extends Controller
 
             return redirect('/transaction')->with('success', 'Transaction Registered');
         } catch (\Exception $e) {
+            Bugsnag::notifyException($e);
             return redirect('/transaction')->with('danger', 'Transaction Failed');
         }
     }
