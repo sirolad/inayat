@@ -36,6 +36,8 @@
         </div>
     </div>
     <div class="jumbotron">
+        <h3>Current Balance</h3>
+            <p>Your Current Balance is <b>{{ 'N' . number_format($balance) }}</b>.</p>
         <h3>Transaction History</h3>
         @if($transactions)
             @include('layout.table')

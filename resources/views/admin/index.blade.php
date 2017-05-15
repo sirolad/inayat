@@ -39,8 +39,8 @@
             </div>
             <div class="col-md-4">
                 <div class="panel panel-info">
-                    <div class="panel-heading">Something Here</div>
-                    <div class="panel-body" id="counting">Right Here</div>
+                    <div class="panel-heading">Current Fund</div>
+                    <div class="panel-body" id="counting">{{ 'N' . number_format($balance) }}</div>
                 </div>
             </div>
         </div>

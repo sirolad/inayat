@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Redirect;
 
 class AdminController extends Controller
 {
+    /**
+     * AdminController constructor.
+     */
     public function __construct()
     {
         $this->middleware('admin');
@@ -29,9 +32,11 @@ class AdminController extends Controller
         $credit = $credits->sum('amount');
         $debits = Account::where('type', 'debit')->where('status', Account::STATUS_ACTIVE);
         $debit = $debits->sum('amount');
+        $balance = $credit - $debit;
         $totalTransactions = Account::all();
 
-        return view('admin.index', compact('user', 'transactions', 'totalTransactions', 'credit', 'debit'));
+        return view('admin.index', compact('user', 'transactions', 'totalTransactions', 'credit', 'debit',
+            'balance'));
     }
 
     /**
@@ -107,7 +112,7 @@ class AdminController extends Controller
             $transaction->status = Account::STATUS_ACTIVE;
             $transaction->save();
 
-            return ['status_code' => 200, 'message' => 'Course deleted successfully'];
+            return ['status_code' => 200, 'message' => 'Transaction Verified successfully'];
         }
 
         return ['message' => 'The Operation Failed'];
@@ -126,7 +131,7 @@ class AdminController extends Controller
             $transaction->status = Account::STATUS_DECLINED;
             $transaction->save();
 
-            return ['status_code' => 200, 'message' => 'Course deleted successfully'];
+            return ['status_code' => 200, 'message' => 'Transaction Declined successfully'];
         }
 
         return ['message' => 'The Operation Failed'];
@@ -159,6 +164,11 @@ class AdminController extends Controller
         return view('admin.payment', compact('user'));
     }
 
+    /**
+     * @param Request $request
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function makeTransaction(Request $request,$id)
     {
         try {

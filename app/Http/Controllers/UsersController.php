@@ -17,10 +17,15 @@ class UsersController extends Controller
     public function index()
     {
         $user = Auth::user();
+        $userId = Auth::user()->getAuthIdentifier();
+        $transactions = Account::where('user_id', '=', $userId)->get();
+        $credits = Account::where('type', 'credit')->where('status', Account::STATUS_ACTIVE)->where('user_id', $userId);
+        $credit = $credits->sum('amount');
+        $debits = Account::where('type', 'debit')->where('status', Account::STATUS_ACTIVE)->where('user_id', $userId);
+        $debit = $debits->sum('amount');
+        $balance = $credit - $debit;
 
-        $transactions = Account::where('user_id', '=', Auth::user()->getAuthIdentifier())->get();
-
-        return view('users.index', compact('user', 'transactions'));
+        return view('users.index', compact('user', 'transactions', 'balance'));
     }
 
     /**

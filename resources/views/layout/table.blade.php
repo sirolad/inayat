@@ -6,6 +6,7 @@
             <th>Amount</th>
             <th>Reference</th>
             <th>Transaction</th>
+            <th>Type</th>
             <th>Status</th>
             <th>Transaction Date</th>
         </tr>
@@ -17,6 +18,7 @@
                 <td>{{ number_format($transaction->amount) }}</td>
                 <td>{{ $transaction->reference }}</td>
                 <td>{{ ucfirst($transaction->transaction) }}</td>
+                <td>{{ $transaction->type }}</td>
                 <td>{{ ucfirst($transaction->status) }}</td>
                 <td>{{ $transaction->created_at->diffForHumans() }}</td>
             </tr>
