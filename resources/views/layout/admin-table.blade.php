@@ -14,9 +14,13 @@
             @endcan
         </tr>
         </thead>
+        <tbody>
         @foreach($transactions as $transaction)
-            <tbody>
-            <tr class="info" id="row{{ $transaction->id }}">
+            @if($transaction->type == 'debit')
+                <tr class="danger" id="row{{ $transaction->id }}">
+            @else
+                <tr class="success" id="row{{ $transaction->id }}">
+            @endif
                 <td>&nbsp;</td>
                 <td>{{ $transaction->user->fullName() }}</td>
                 <td>{{ number_format($transaction->amount) }}</td>
@@ -31,7 +35,7 @@
                     </td>
                 @endcan
             </tr>
-            </tbody>
         @endforeach
+        </tbody>
     </table>
 </div>

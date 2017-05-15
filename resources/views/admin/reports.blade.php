@@ -18,9 +18,13 @@
                         <th>Transaction Date</th>
                     </tr>
                     </thead>
+                    <tbody>
                     @foreach($transactions as $transaction)
-                        <tbody>
-                        <tr class="info" id="row{{ $transaction->id }}">
+                        @if($transaction->type == 'debit')
+                        <tr class="danger" id="row{{ $transaction->id }}">
+                        @else
+                        <tr class="success" id="row{{ $transaction->id }}">
+                        @endif
                             <td> </td>
                             <td>{{ $transaction->user->fullName() }}</td>
                             <td>{{ number_format($transaction->amount) }}</td>
@@ -30,8 +34,8 @@
                             <td>{{ ucfirst($transaction->status) }}</td>
                             <td>{{ $transaction->created_at }}</td>
                         </tr>
-                        </tbody>
                     @endforeach
+                    </tbody>
                 </table>
             </div>
         </div>

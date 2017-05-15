@@ -21,8 +21,8 @@
                     <th>Actions</th>
                 </tr>
                 </thead>
-                @foreach($members as $member)
                 <tbody>
+                @foreach($members as $member)
                 <tr class="info">
                     <td>{{ $member->id }}</td>
                     <td>{{ $member->registration }}</td>
@@ -41,8 +41,8 @@
                     @endif
                     <td><a href="{{ route('show.transaction', $member->id) }}" class="btn btn-primary">Transact</a></td>
                 </tr>
-                </tbody>
                 @endforeach
+                </tbody>
             </table>
         </div>
     </div>
