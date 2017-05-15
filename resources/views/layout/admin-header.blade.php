@@ -7,6 +7,14 @@
             <li class="active"><a href="{{ route('admin.index') }}">Admin Dashboard</a></li>
             <li><a href="{{ route('admin.create') }}">Create Account</a></li>
             <li><a href="{{ route('admin.members') }}">View Members</a></li>
+            <li>
+                <a data-toggle="dropdown">Reports</a>
+                <ul class="dropdown-menu">
+                    <li><a href="{{ route('admin.reports') }}">All Reports</a></li>
+                    <li><a href="#">Credits</a></li>
+                    <li><a href="#">JavaScript</a></li>
+                </ul>
+            </li>
         </ul>
         <form class="navbar-form navbar-left">
             <div class="form-group">

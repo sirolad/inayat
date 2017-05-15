@@ -187,4 +187,16 @@ class AdminController extends Controller
             return back()->with('danger', 'Transaction Failed');
         }
     }
+
+    /**
+     * Get all reports
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function getReports()
+    {
+        $transactions = Account::all();
+
+        return view('admin.reports', compact('transactions'));
+    }
 }
