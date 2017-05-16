@@ -3,7 +3,7 @@
         <div class="form-group col-xs-4 col-md-4">
             <label for="email">Transaction:</label>
             <select class="form-control" name="transaction" id="sel1">
-                <option value="all">All</option>
+                <option>Select</option>
                 <option value="savings">Savings</option>
                 <option value="commodity">Commodity</option>
                 <option value="shares">Shares</option>
@@ -18,8 +18,8 @@
         <div class="form-group col-xs-4 col-md-4">
             <br>
             <label for="pwd">Type:</label>
-            <select class="form-control" name="type" id="sel1">
-                <option value="all" name="all">All</option>
+            <select class="form-control" name="type" disabled>
+                <option>Select</option>
                 <option value="credit">Credit</option>
                 <option value="debit">Debit</option>
             </select>

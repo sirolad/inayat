@@ -190,15 +190,45 @@ class AdminController extends Controller
 
     /**
      * Get all reports
-     *
+     * @param Request $request
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function getReports()
+    public function getReports(Request $request)
     {
-        $transactions = Account::all();
-        $credits = Account::where('type', 'credit')->where('status', Account::STATUS_ACTIVE);
+        if (!$request->query()) {
+            $transactions = Account::all();
+            $credits = Account::where('type', 'credit')->where('status', Account::STATUS_ACTIVE);
+            $credit = $credits->sum('amount');
+            $debits = Account::where('type', 'debit')->where('status', Account::STATUS_ACTIVE);
+            $debit = $debits->sum('amount');
+            $balance = $credit - $debit;
+
+            return view('admin.reports', compact('transactions','credit', 'debit', 'balance'));
+        }
+
+        $query = $request->query();
+        $transaction = $query['transaction'];
+        //$type = $query['type'];
+        $sort_type = [
+            'credit' => 'credit',
+            'debit' => 'debit',
+            'savings' => 'savings',
+            'education' => 'education',
+            'loans' => 'loans',
+            'ileya' => 'ileya',
+            'admin_charges' => 'admin_charges',
+            'special_savings' => 'special_savings',
+            'commodity' => 'commodity',
+            'shares' => 'shares',
+            'ramadan' => 'ramadan'
+        ];
+
+        $transactions = Account::where('status', Account::STATUS_ACTIVE)->where('transaction', $sort_type[$transaction])->get();
+        $credits = Account::where('type', 'credit')->where('status', Account::STATUS_ACTIVE)
+            ->where('transaction', $sort_type[$transaction]);
         $credit = $credits->sum('amount');
-        $debits = Account::where('type', 'debit')->where('status', Account::STATUS_ACTIVE);
+        $debits = Account::where('type', 'debit')->where('status', Account::STATUS_ACTIVE)
+            ->where('transaction', $sort_type[$transaction]);;
         $debit = $debits->sum('amount');
         $balance = $credit - $debit;
 
