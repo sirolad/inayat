@@ -8,8 +8,8 @@
                     <h3>Balance</h3>
                     <p>The Current Balance is <b>{{ 'N' . number_format($balance) }}</b>.</p>
                     <br>
-                    @include('layout.filter')
                     <h3>All Transactions</h3>
+                    @include('layout.filter')
                     <thead>
                     <tr>
                         <th>Id</th>

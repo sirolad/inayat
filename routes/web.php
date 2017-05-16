@@ -14,7 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 })->name('index');
-
+//@todo clean this up
 Route::get('/login',  function () {
     return view('welcome');
 });
@@ -40,5 +40,4 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function () {
     Route::get('/transact/{id}', 'AdminController@showTransaction')->name('show.transaction');
     Route::post('/transact/{id}', 'AdminController@makeTransaction')->name('admin.transaction');
     Route::get('/all-reports', 'AdminController@getReports')->name('admin.reports');
-    Route::get('/query', 'AdminController@getQuery')->name('admin.query');
 });

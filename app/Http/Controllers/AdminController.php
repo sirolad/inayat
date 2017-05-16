@@ -204,4 +204,6 @@ class AdminController extends Controller
 
         return view('admin.reports', compact('transactions', 'credit', 'debit', 'balance'));
     }
+
+
 }
