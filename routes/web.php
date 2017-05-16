@@ -15,6 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 })->name('index');
 
+Route::get('/login',  function () {
+    return view('welcome');
+});
 Route::post('/login', 'Auth\LoginController@authenticate')->name('login');
 Route::get('/dashboard', 'UsersController@index')->name('dashboard');
 Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
@@ -37,4 +40,5 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function () {
     Route::get('/transact/{id}', 'AdminController@showTransaction')->name('show.transaction');
     Route::post('/transact/{id}', 'AdminController@makeTransaction')->name('admin.transaction');
     Route::get('/all-reports', 'AdminController@getReports')->name('admin.reports');
+    Route::get('/query', 'AdminController@getQuery')->name('admin.query');
 });

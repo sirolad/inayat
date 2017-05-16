@@ -11,8 +11,6 @@
                 <a data-toggle="dropdown">Reports</a>
                 <ul class="dropdown-menu">
                     <li><a href="{{ route('admin.reports') }}">All Reports</a></li>
-                    <li><a href="#">Credits</a></li>
-                    <li><a href="#">JavaScript</a></li>
                 </ul>
             </li>
         </ul>

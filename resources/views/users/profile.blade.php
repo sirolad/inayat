@@ -88,25 +88,41 @@
                 <div class="form-group">
                     <label for="kin-name" class="col-4 col-form-label">Name</label>
                     <div class="col-10">
+                        @if(Auth::user()->kins)
                         <input class="form-control" type="text" value="{{ Auth::user()->kins->name }}" id="" name="name">
+                        @else
+                        <p>No record Yet</p>
+                        @endif
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="relationship" class="col-4 col-form-label">Relationship</label>
                     <div class="col-10">
+                        @if(Auth::user()->kins)
                         <input class="form-control" type="text" value="{{ Auth::user()->kins->relationship }}" id="" name="relationship">
+                        @else
+                            <p>No record Yet</p>
+                        @endif
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="address" class="col-4 col-form-label">Address</label>
                     <div class="col-10">
+                        @if(Auth::user()->kins)
                         <input class="form-control" type="text" value="{{ Auth::user()->kins->kin_address }}" id="" name="kin-address">
+                        @else
+                            <p>No record Yet</p>
+                        @endif
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="phone" class="col-12 col-form-label">Phone Number</label>
                     <div class="col-10">
+                        @if(Auth::user()->kins)
                         <input class="form-control" type="tel" value="{{ Auth::user()->kins->kin_phone }}" id="" name="kin-phone">
+                        @else
+                            <p>No record Yet</p>
+                        @endif
                     </div>
                 </div>
                 <hr>

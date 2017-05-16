@@ -5,6 +5,10 @@
             @include('layout.alerts')
             <div class="table-responsive">
                 <table class="css-serial table">
+                    <h3>Balance</h3>
+                    <p>The Current Balance is <b>{{ 'N' . number_format($balance) }}</b>.</p>
+                    <br>
+                    @include('layout.filter')
                     <h3>All Transactions</h3>
                     <thead>
                     <tr>

@@ -196,7 +196,12 @@ class AdminController extends Controller
     public function getReports()
     {
         $transactions = Account::all();
+        $credits = Account::where('type', 'credit')->where('status', Account::STATUS_ACTIVE);
+        $credit = $credits->sum('amount');
+        $debits = Account::where('type', 'debit')->where('status', Account::STATUS_ACTIVE);
+        $debit = $debits->sum('amount');
+        $balance = $credit - $debit;
 
-        return view('admin.reports', compact('transactions'));
+        return view('admin.reports', compact('transactions', 'credit', 'debit', 'balance'));
     }
 }
