@@ -17,6 +17,7 @@
 <script type="text/javascript" src="{{ secure_asset('js/script.js') }}"></script>
 <script type="text/javascript" src="{{ secure_asset('js/inayat.js') }}"></script>
 <script type="text/javascript" src="{{ secure_asset('js/app.js') }}" ></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script src="https://use.fontawesome.com/08f92b851e.js"></script>
 </body>
 </html>
