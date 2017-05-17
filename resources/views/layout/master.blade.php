@@ -14,6 +14,7 @@
 
 @yield('content')
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script type="text/javascript" src="{{ secure_asset('js/script.js') }}"></script>
 <script type="text/javascript" src="{{ secure_asset('js/inayat.js') }}"></script>
 <script type="text/javascript" src="{{ secure_asset('js/app.js') }}" ></script>
