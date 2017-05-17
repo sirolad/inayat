@@ -11,6 +11,8 @@ class User extends Authenticatable
 
     const ACTIVE = 1;
 
+    protected $dummyImage = __DIR__ . '../public/image/avatar.jpg';
+
     /**
      * The attributes that are mass assignable.
      *
@@ -65,5 +67,39 @@ class User extends Authenticatable
     public function account()
     {
         return $this->hasMany('Inayat\Account');
+    }
+
+    /**
+     * Get the avatar from gravatar.
+     *
+     * @return string
+     */
+    private function getAvatarFromGravatar()
+    {
+        return 'http://www.gravatar.com/avatar/'.md5(strtolower(trim($this->email))).'?d=mm&s=500';
+    }
+
+    /**
+     * Get avatar from the model.
+     *
+     * @return string
+     */
+    public function getAvatar()
+    {
+        return (! is_null($this->image)) ? $this->image : $this->getAvatarFromGravatar();
+    }
+
+    /**
+     * update users Avatar.
+     *
+     * @param  file
+     *
+     * @return void
+     */
+    public function updateAvatar($img)
+    {
+        $this->image = $img;
+
+        $this->save();
     }
 }

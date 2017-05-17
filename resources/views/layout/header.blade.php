@@ -11,7 +11,7 @@
             @endcan
         </ul>
         <ul class="nav navbar-nav navbar-right">
-            <li><a><img class="avatar1" src="{{ 'image/' . Auth::user()->image }}" > {{ Auth::user()->fullName() }}</a></li>
+            <li><a><img class="avatar1" src="{{ Auth::user()->getAvatar() }}" > {{ Auth::user()->fullName() }}</a></li>
             <li><a href="{{ route('logout') }}"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>
         </ul>
     </div>

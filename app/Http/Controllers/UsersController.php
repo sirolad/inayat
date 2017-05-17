@@ -6,6 +6,7 @@ use Inayat\Account;
 use Inayat\Kin;
 use Inayat\User;
 use Illuminate\Http\Request;
+use JD\Cloudder\Facades\Cloudder;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Bugsnag\BugsnagLaravel\Facades\Bugsnag;
@@ -70,6 +71,12 @@ class UsersController extends Controller
         return redirect('/edit-profile')->with('danger', 'There was an Error. Update failed.');
     }
 
+    /**
+     * Change Password Function
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function changePassword(Request $request)
     {
         $user = User::find(Auth::user()->getAuthIdentifier());
@@ -91,9 +98,26 @@ class UsersController extends Controller
         return redirect('/edit-profile')->with('danger', 'Your Old Password is wrong!');
     }
 
-    public function uploadImage()
+    /**
+     * Upload Image
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function uploadImage(Request $request)
     {
+        $img = $request->file('avatar');
 
+        if (isset($img)) {
+            Cloudder::upload($img);
+            $imgurl = Cloudder::getResult()['url'];
+
+            User::find(Auth::user()->id)->updateAvatar($imgurl);
+
+            return redirect('/edit-profile')->with('success', 'Avatar updated successfully');
+        }
+
+        return back()->with('danger', 'You need to select a file!');
     }
 
     /**

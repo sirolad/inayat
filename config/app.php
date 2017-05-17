@@ -177,7 +177,7 @@ return [
         Inayat\Providers\EventServiceProvider::class,
         Inayat\Providers\RouteServiceProvider::class,
         Bugsnag\BugsnagLaravel\BugsnagServiceProvider::class,
-
+        JD\Cloudder\CloudderServiceProvider::class,
     ],
 
     /*
@@ -227,6 +227,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Bugsnag' => Bugsnag\BugsnagLaravel\Facades\Bugsnag::class,
+        'Cloudder'  => JD\Cloudder\Facades\Cloudder::class,
     ],
 
 ];

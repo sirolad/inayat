@@ -4,6 +4,13 @@
     width: 30px;
 }
 
+.avatar2 {
+    border-radius: 10px;
+    height: 100px;
+    width: 100px;
+    position: overflow;
+}
+
 hr.style2 {
      border-top: 3px double #8c8b8b;
 }

@@ -169,10 +169,19 @@
                 </div>
             </form>
             {{--Upload Picture--}}
-            <form class="form-inline" method="post" action="{{ route('upload.image') }}">
+            <form class="form-inline" method="post" action="{{ route('upload.image') }}" enctype="multipart/form-data">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <hr class="style2">
                 <h4>Upload Picture</h4>
+                <img src="{{ Auth::user()->getAvatar() }}" class="avatar2 img-circle img-responsive" alt="avatar">
+                <div class="form-group">
+                    <label for="inputFile" class="col-md-2 control-label">Avatar</label>
+                    <div class="col-md-10">
+                        <input type="text" readonly="" class="form-control" placeholder="Browse...">
+                        <input type="file" id="inputFile" multiple="" name="avatar" required>
+                    </div>
+                    <input type="submit" class="btn btn-primary btn-raised" value="Add Image">
+                </div>
             </form>
         </div>
     </div>
