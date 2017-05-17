@@ -15,14 +15,14 @@
                 <option value="admin_charges">Admin Charges</option>
             </select>
         </div>
-        <div class="form-group col-xs-4 col-md-4">
-            <br>
-            <label for="pwd">Type:</label>
-            <select class="form-control" name="type" disabled>
-                <option>Select</option>
-                <option value="credit">Credit</option>
-                <option value="debit">Debit</option>
-            </select>
+        <div class="form-group col-xs-2 col-md-2">
+            {{--<br>--}}
+            {{--<label for="pwd">Type:</label>--}}
+            {{--<select class="form-control" name="type" disabled>--}}
+                {{--<option>Select</option>--}}
+                {{--<option value="credit">Credit</option>--}}
+                {{--<option value="debit">Debit</option>--}}
+            {{--</select>--}}
         </div>
         <div class="form-group">
             <br>

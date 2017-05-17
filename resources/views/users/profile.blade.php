@@ -142,6 +142,31 @@
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <hr class="style2">
                 <h4>Change Password</h4>
+                <div class="form-group">
+                    <label for="old-password" class="col-12 col-form-label">Old Password</label>
+                    <div class="col-10">
+                        <input class="form-control" type="text" value="" id="" name="oldPassword" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="new-password" class="col-12 col-form-label">New Password</label>
+                    <div class="col-10">
+                        <input class="form-control" type="text" value="" id="" name="newPassword" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="confirm-password" class="col-12 col-form-label">Confirm New Password</label>
+                    <div class="col-10">
+                        <input class="form-control" type="text" value="" id="" name="confirmPassword" required>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="form-group row">
+                    <div class="offset-sm-2 col-sm-10">
+                        <button type="submit" class="btn btn-primary">Update Password</button>
+                    </div>
+                </div>
             </form>
             {{--Upload Picture--}}
             <form class="form-inline" method="post" action="{{ route('upload.image') }}">

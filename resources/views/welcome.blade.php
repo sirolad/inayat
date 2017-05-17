@@ -32,11 +32,7 @@
                       <input type="tel" name="phone" placeholder="Phone Number" required class="form-control input-lg" value="" />
 
                       <input type="password" class="form-control input-lg" id="password" placeholder="Password" name="password" required="" />
-
-
                       <div class="pwstrength_viewport_progress"></div>
-
-
                       <button type="submit" name="go" class="btn btn-lg btn-primary btn-block">Log in</button>
                       <div>
                          <a href="#">Forgot password</a>

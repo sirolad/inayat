@@ -6,6 +6,7 @@ use Inayat\Account;
 use Inayat\Kin;
 use Inayat\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Bugsnag\BugsnagLaravel\Facades\Bugsnag;
 
@@ -69,9 +70,25 @@ class UsersController extends Controller
         return redirect('/edit-profile')->with('danger', 'There was an Error. Update failed.');
     }
 
-    public function changePassword()
+    public function changePassword(Request $request)
     {
+        $user = User::find(Auth::user()->getAuthIdentifier());
+        $oldPassword = $request->oldPassword;
+        $newPassword = $request->newPassword;
+        $confirmPassword = $request->confirmPassword;
 
+        if (Hash::check($oldPassword, $user->password)) {
+            if ($newPassword === $confirmPassword) {
+                $user->password = bcrypt($confirmPassword);
+                $user->save();
+
+                return redirect('/edit-profile')->with('success', 'Password Updated Successfully');
+            }
+
+            return redirect('/edit-profile')->with('danger', 'Check the New Password Again');
+        }
+
+        return redirect('/edit-profile')->with('danger', 'Your Old Password is wrong!');
     }
 
     public function uploadImage()
