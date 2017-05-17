@@ -19,7 +19,7 @@
                 </ul>
             </li>
         </ul>
-        <form class="navbar-form navbar-left">
+        <form class="navbar-form navbar-left navbar-nav">
             <div class="form-group">
                 <input type="text" class="form-control" placeholder="Search">
             </div>
