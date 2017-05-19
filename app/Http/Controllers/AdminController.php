@@ -145,15 +145,19 @@ class AdminController extends Controller
      */
     public function viewMembers($id)
     {
-        $user = User::where('registration', $id)->first();
-        $transactions = Account::where('user_id', '=', $user->id)->get();
-        $credits = Account::where('type', 'credit')->where('status', Account::STATUS_ACTIVE)->where('user_id', $user->id);
-        $credit = $credits->sum('amount');
-        $debits = Account::where('type', 'debit')->where('status', Account::STATUS_ACTIVE)->where('user_id', $user->id);
-        $debit = $debits->sum('amount');
-        $balance = $credit - $debit;
+        if (isset($id)) {
+            $user = User::where('registration', $id)->first();
+            $transactions = Account::where('user_id', '=', $user->id)->get();
+            $credits = Account::where('type', 'credit')->where('status', Account::STATUS_ACTIVE)->where('user_id', $user->id);
+            $credit = $credits->sum('amount');
+            $debits = Account::where('type', 'debit')->where('status', Account::STATUS_ACTIVE)->where('user_id', $user->id);
+            $debit = $debits->sum('amount');
+            $balance = $credit - $debit;
 
-        return view('users.index', compact('user', 'transactions', 'balance'));
+            return view('users.index', compact('user', 'transactions', 'balance'));
+        }
+
+        return abort(503);
     }
 
     /**
