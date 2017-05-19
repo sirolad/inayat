@@ -147,8 +147,13 @@ class AdminController extends Controller
     {
         $user = User::where('registration', $id)->first();
         $transactions = Account::where('user_id', '=', $user->id)->get();
+        $credits = Account::where('type', 'credit')->where('status', Account::STATUS_ACTIVE)->where('user_id', $user->id);
+        $credit = $credits->sum('amount');
+        $debits = Account::where('type', 'debit')->where('status', Account::STATUS_ACTIVE)->where('user_id', $user->id);
+        $debit = $debits->sum('amount');
+        $balance = $credit - $debit;
 
-        return view('users.index', compact('user', 'transactions'));
+        return view('users.index', compact('user', 'transactions', 'balance'));
     }
 
     /**
