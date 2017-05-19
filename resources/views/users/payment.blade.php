@@ -10,13 +10,13 @@
             <div class="form-group">
                 <label for="reference" class="col-4 col-form-label">Reference</label>
                 <div class="col-10">
-                    <input class="form-control" type="text" value="" id="" name="reference">
+                    <input class="form-control" type="text" value="" id="" name="reference" required>
                 </div>
             </div>
             <div class="form-group">
                 <label for="amount" class="col-4 col-form-label">Amount</label>
                 <div class="col-10">
-                    <input class="form-control" type="number" value="" id="" name="amount">
+                    <input class="form-control" type="number" value="" id="" name="amount" required>
                 </div>
             </div>
             <div class="form-group">
