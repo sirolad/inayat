@@ -72,7 +72,7 @@ class AdminController extends Controller
         $user->permanentAddress = $request->input('permanentAddress');
         $user->occupation = $request->input('occupation');
         $user->status = User::ACTIVE;
-        $user->image = 'avatar.jpg';
+        $user->image = '';
         $user->password = Hash::make('NewPassword01');
         $user->role = Role::MEMBER;
         $user->save();
