@@ -11,25 +11,25 @@
             <div class="form-group">
                 <label for="registration" class="col-4 col-form-label">Registration Id</label>
                 <div class="col-10">
-                    <input class="form-control" type="tel" value="" id="" name="registration">
+                    <input class="form-control" type="tel" value="" id="" name="registration" required>
                 </div>
             </div>
             <div class="form-group">
                 <label for="surname" class="col-4 col-form-label">Surname</label>
                 <div class="col-10">
-                    <input class="form-control" type="text" value="" id="" name="surname">
+                    <input class="form-control" type="text" value="" id="" name="surname" required>
                 </div>
             </div>
             <div class="form-group">
                 <label for="first name" class="col-4 col-form-label">First Name</label>
                 <div class="col-10">
-                    <input class="form-control" type="text" value="" id="" name="first-name">
+                    <input class="form-control" type="text" value="" id="" name="first-name" required>
                 </div>
             </div>
             <div class="form-group">
                 <label for="middle name" class="col-4 col-form-label">Middle Name</label>
                 <div class="col-10">
-                    <input class="form-control" type="text" value="" id="" name="middle-name">
+                    <input class="form-control" type="text" value="" id="" name="middle-name" required>
                 </div>
             </div>
             <div class="form-group">
@@ -45,7 +45,7 @@
             <div class="form-group">
                 <label for="middle name" class="col-2 col-form-label">Date Of Birth</label>
                 <div class="col-10">
-                    <input class="form-control" type="date" value="" id="" name="dob">
+                    <input class="form-control" type="date" value="" id="" name="dob" required>
                 </div>
             </div>
             <div class="form-group">
@@ -63,7 +63,7 @@
             <div class="form-group">
                 <label for="address" class="col-12 col-form-label">Address</label>
                 <div class="col-10">
-                    <input class="form-control" type="text" value="" id="" name="address">
+                    <input class="form-control" type="text" value="" id="" name="address" required>
                 </div>
             </div>
             <div class="form-group">
@@ -75,19 +75,19 @@
             <div class="form-group">
                 <label for="phone" class="col-12 col-form-label">Phone Number</label>
                 <div class="col-10">
-                    <input class="form-control" type="tel" value="" id="" name="phone">
+                    <input class="form-control" type="tel" value="" id="" name="phone" required>
                 </div>
             </div>
             <div class="form-group">
                 <label for="email" class="col-12 col-form-label">Email</label>
                 <div class="col-10">
-                    <input class="form-control" type="email" value="" id="" name="email">
+                    <input class="form-control" type="email" value="" id="" name="email" required>
                 </div>
             </div>
             <div class="form-group">
                 <label for="occupation" class="col-12 col-form-label">Occupation</label>
                 <div class="col-10">
-                    <input class="form-control" type="text" value="" id="" name="occupation">
+                    <input class="form-control" type="text" value="" id="" name="occupation" required>
                 </div>
             </div>
             <hr>
@@ -95,25 +95,25 @@
             <div class="form-group">
                 <label for="kin-name" class="col-4 col-form-label">Name</label>
                 <div class="col-10">
-                    <input class="form-control" type="text" value="" id="" name="name">
+                    <input class="form-control" type="text" value="" id="" name="name" required>
                 </div>
             </div>
             <div class="form-group">
                 <label for="relationship" class="col-4 col-form-label">Relationship</label>
                 <div class="col-10">
-                    <input class="form-control" type="text" value="" id="" name="relationship">
+                    <input class="form-control" type="text" value="" id="" name="relationship" required>
                 </div>
             </div>
             <div class="form-group">
                 <label for="address" class="col-4 col-form-label">Address</label>
                 <div class="col-10">
-                    <input class="form-control" type="text" value="" id="" name="kin-address">
+                    <input class="form-control" type="text" value="" id="" name="kin-address" required>
                 </div>
             </div>
             <div class="form-group">
                 <label for="phone" class="col-12 col-form-label">Phone Number</label>
                 <div class="col-10">
-                    <input class="form-control" type="tel" value="" id="" name="kin-phone">
+                    <input class="form-control" type="tel" value="" id="" name="kin-phone" required>
                 </div>
             </div>
             <hr>
