@@ -9,12 +9,12 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" type="text/css" href="{{ secure_asset('css/app.css') }}">
-        <link rel="stylesheet" type="text/css" href="{{ secure_asset('css/style.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
 
-        <script type="text/javascript" src="{{ secure_asset('js/app.js') }}" ></script>
-        <script type="text/javascript" src="{{ secure_asset('js/script.js') }}"></script>
-        <script type="text/javascript" src="{{ secure_asset('js/inayat.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/app.js') }}" ></script>
+        <script type="text/javascript" src="{{ asset('js/script.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/inayat.js') }}"></script>
     </head>
     <body>
         <div class="flex-center position-ref">
