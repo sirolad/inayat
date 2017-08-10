@@ -7,10 +7,10 @@
     "require": {
         "php": ">=5.6.4",
         "bugsnag/bugsnag-laravel": "^2.0",
+        "guzzlehttp/guzzle": "^6.3",
         "jrm2k6/cloudder": "^0.4.0",
         "laravel/framework": "5.4.*",
-        "laravel/tinker": "~1.0",
-        "nexmo/laravel": "^0.4.0"
+        "laravel/tinker": "~1.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

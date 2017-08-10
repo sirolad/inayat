@@ -20,22 +20,20 @@
         <div class="flex-center position-ref">
             <div class="content">
                 <div class="title">
-                    <b>Al-Inayat Multi-purpose Relief Investment </b>
+                    <b>Al-Inayat Password Reset </b>
                 </div>
 
                 <div class="row">
                 <div class="col-md-12">
                   <section class="login-form">
                       @include('layout.alerts');
-                    <form method="post" action="{{ route('login') }}" role="login">
+                    <form method="post" action="{{ route('reset') }}" role="login">
                       <input type="hidden" name="_token" value="{{ csrf_token() }}">
                       <input type="tel" name="phone" placeholder="Phone Number" required class="form-control input-lg" value="" />
 
-                      <input type="password" class="form-control input-lg" id="password" placeholder="Password" name="password" required="" />
-                      <div class="pwstrength_viewport_progress"></div>
-                      <button type="submit" name="go" class="btn btn-lg btn-primary btn-block">Log in</button>
+                      <button type="submit" name="go" class="btn btn-lg btn-primary btn-block">Reset Password</button>
                       <div>
-                         <a href="{{ route('forgot') }}">Forgot password</a>
+                         <a href="{{ route('index') }}">Login</a>
                       </div>
 
                     </form>

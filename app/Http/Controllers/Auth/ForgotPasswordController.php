@@ -29,4 +29,14 @@ class ForgotPasswordController extends Controller
     {
         $this->middleware('guest');
     }
+
+    /**
+     * View for Password Reset
+     *
+     * @return [type] [description]
+     */
+    public function forgot()
+    {
+        return view('auth.forgot');
+    }
 }

@@ -28,6 +28,8 @@ Route::post('/upload-image', 'UsersController@uploadImage')->name('upload.image'
 Route::post('/update-kin', 'UsersController@updateKin')->name('edit.kin');
 Route::get('/transaction', 'UsersController@showTransaction')->name('show.payment');
 Route::post('/transaction', 'UsersController@makeTransaction')->name('make.payment');
+Route::get('/forgot-password', 'Auth\ForgotPasswordController@forgot')->name('forgot');
+Route::post('/forgot-password', 'Auth\ResetPasswordController@reset')->name('reset');
 
 Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function () {
     Route::get('/', 'AdminController@index')->name('admin.index');
