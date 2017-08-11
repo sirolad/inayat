@@ -117,6 +117,16 @@
                 </div>
             </div>
             <hr>
+            <h4>Role</h4>
+            <div class="form-group">
+                <label for="kin-name" class="col-4 col-form-label">Role</label>
+                <div class="col-10">
+                   <select class="form-control" name="role" id="role">
+                        <option value="1">Member</option>
+                        <option value="3">Admin</option>
+                 </select>
+            </div>
+            <hr>
             <div class="form-group row">
                 <div class="offset-sm-2 col-sm-10">
                     <button type="submit" class="btn btn-primary">Submit</button>
@@ -126,6 +136,7 @@
                 <div class="offset-sm-2 col-sm-10">
                     <button type="reset" class="btn btn-default">Reset</button>
                 </div>
+            </div>
             </div>
         </form>
     </div>

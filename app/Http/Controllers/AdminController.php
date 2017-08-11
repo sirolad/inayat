@@ -8,6 +8,8 @@ use Inayat\Kin;
 use Inayat\Role;
 use Inayat\User;
 use Illuminate\Http\Request;
+use Inayat\Mail\RegistrationActive;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
@@ -60,12 +62,15 @@ class AdminController extends Controller
             return Redirect::back()->with('warning', 'Member Already exists');
         }
 
+        $password = str_random(8);
+        $email = $request->input('email');
+
         $user->registration = $request->input('registration');
         $user->surname = $request->input('surname');
         $user->firstName = $request->input('first-name');
         $user->middleName = $request->input('middle-name');
         $user->phone = $request->input('phone');
-        $user->email = $request->input('email');
+        $user->email = $email;
         $user->sex = $request->input('sex');
         $user->dob = $request->input('dob');
         $user->maritalStatus = $request->input('maritalStatus');
@@ -74,8 +79,8 @@ class AdminController extends Controller
         $user->occupation = $request->input('occupation');
         $user->status = User::ACTIVE;
         $user->image = '';
-        $user->password = Hash::make('NewPassword01');
-        $user->role = Role::MEMBER;
+        $user->password = Hash::make($password);
+        $user->role = $request->input('role');
         $user->save();
 
         $kin = new Kin();
@@ -85,6 +90,8 @@ class AdminController extends Controller
         $kin->kin_phone = $request->input('kin-phone');
         $kin->user_id = $user->getAttribute('id');
         $kin->save();
+
+        Mail::to($email)->send(new RegistrationActive($user, $password));
 
         return redirect('/admin')->with('success', 'Member Account Successfully Created!');
     }
@@ -208,7 +215,10 @@ class AdminController extends Controller
     public function getReports(Request $request)
     {
         $query = $request->query();
-        $transaction = $query['transaction'];
+
+        if (isset($query['transaction'])) {
+            $transaction = $query['transaction'];
+        }
 
         if (!$request->query() || $transaction == 'all') {
             return $this->getAllReports();
@@ -244,6 +254,11 @@ class AdminController extends Controller
         return view('admin.reports', compact('transactions', 'credit', 'debit', 'balance', 'type'));
     }
 
+    /**
+     * Get All Reports
+     *
+     * @return  \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function getAllReports()
     {
             $transactions = Account::paginate(15);
