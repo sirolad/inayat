@@ -2,6 +2,11 @@
 @section('content')
 <div class="container">
     <div class="jumbotron">
+        <span class="pull-right">
+            <a href="{{ route('excel.members') }}">
+                <button class="btn-info">Print Members</button>
+            </a>
+        </span>
         <h2>All Members</h2>
         @include('layout.alerts')
         <div class="table-responsive">

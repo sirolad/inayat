@@ -2,6 +2,11 @@
 @section('content')
     <div class="container">
         <div class="jumbotron">
+        <span class="pull-right">
+            <a href="{{ route('excel.transactions') }}">
+                <button class="btn-info">Print All Transaction</button>
+            </a>
+        </span>
             @include('layout.alerts')
             <div class="table-responsive">
                 <table class="css-serial table">
