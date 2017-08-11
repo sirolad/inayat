@@ -95,7 +95,7 @@ class AdminController extends Controller
      */
     public function getMembers()
     {
-        $members = User::all();
+        $members = User::paginate(15);
 
         return view('admin.members', compact('members'));
     }

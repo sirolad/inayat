@@ -2,6 +2,7 @@
 @section('content')
 <div class="container">
     <div class="jumbotron">
+        <h2>All Members</h2>
         @include('layout.alerts')
         <div class="table-responsive">
             <table class="table">
