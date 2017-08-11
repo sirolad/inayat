@@ -24,6 +24,7 @@ class CreateAccountsTable extends Migration
             ]);
             $table->enum('status', ['active', 'pending', 'declined']);
             $table->enum('type', ['credit', 'debit']);
+            $table->string('approver')->nullable()->default('Not Approved');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')

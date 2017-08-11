@@ -9,6 +9,7 @@ use Inayat\Role;
 use Inayat\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 
 class AdminController extends Controller
@@ -101,7 +102,7 @@ class AdminController extends Controller
 
     /**
      * Verify Credit Transaction
-     * 
+     *
      * @param $id
      * @return array
      */
@@ -110,6 +111,7 @@ class AdminController extends Controller
         $transaction = Account::findOrFail($id);
         if ($transaction) {
             $transaction->status = Account::STATUS_ACTIVE;
+            $transaction->approver = Auth::user()->fullName();
             $transaction->save();
 
             return ['status_code' => 200, 'message' => 'Transaction Verified successfully'];
@@ -120,7 +122,7 @@ class AdminController extends Controller
 
     /**
      * Decline Credit Transaction
-     * 
+     *
      * @param $id
      * @return array
      */
@@ -129,6 +131,7 @@ class AdminController extends Controller
         $transaction = Account::findOrFail($id);
         if ($transaction) {
             $transaction->status = Account::STATUS_DECLINED;
+            $transaction->approver = Auth::user()->fullName();
             $transaction->save();
 
             return ['status_code' => 200, 'message' => 'Transaction Declined successfully'];
@@ -243,6 +246,4 @@ class AdminController extends Controller
 
         return view('admin.reports', compact('transactions', 'credit', 'debit', 'balance'));
     }
-
-
 }

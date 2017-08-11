@@ -19,6 +19,7 @@
                         <th>Transaction</th>
                         <th>Type</th>
                         <th>Status</th>
+                        <th>Approver</th>
                         <th>Transaction Date</th>
                     </tr>
                     </thead>
@@ -36,6 +37,7 @@
                             <td>{{ ucfirst($transaction->transaction) }}</td>
                             <td>{{ $transaction->type }}</td>
                             <td>{{ ucfirst($transaction->status) }}</td>
+                            <td>{{ $transaction->approver }}</td>
                             <td>{{ $transaction->created_at }}</td>
                         </tr>
                     @endforeach
