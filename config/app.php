@@ -178,6 +178,7 @@ return [
         Inayat\Providers\RouteServiceProvider::class,
         Bugsnag\BugsnagLaravel\BugsnagServiceProvider::class,
         JD\Cloudder\CloudderServiceProvider::class,
+        Maatwebsite\Excel\ExcelServiceProvider::class,
     ],
 
     /*
@@ -228,6 +229,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Bugsnag' => Bugsnag\BugsnagLaravel\Facades\Bugsnag::class,
         'Cloudder'  => JD\Cloudder\Facades\Cloudder::class,
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
     ],
 
 ];

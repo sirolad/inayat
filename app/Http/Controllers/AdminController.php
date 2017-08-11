@@ -2,6 +2,7 @@
 
 namespace Inayat\Http\Controllers;
 
+use Excel;
 use Bugsnag\BugsnagLaravel\Facades\Bugsnag;
 use Inayat\Account;
 use Inayat\Kin;
@@ -27,7 +28,7 @@ class AdminController extends Controller
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function  index()
+    public function index()
     {
         $user = User::all();
         $transactions = Account::where('status', '=', Account::STATUS_PENDING)->get();
@@ -270,5 +271,40 @@ class AdminController extends Controller
             $type = 'All';
 
             return view('admin.reports', compact('transactions','credit', 'debit', 'balance', 'type'));
+    }
+
+    /**
+     * Get CSV report of members
+     *
+     * @return Redirect
+     */
+    public function csvMembers()
+    {
+        $users = User::select('id', 'registration', 'surname', 'firstName', 'middleName',
+            'phone', 'email', 'sex', 'dob', 'maritalStatus', 'address', 'occupation')->get();
+        Excel::create('members', function($excel) use($users) {
+            $excel->sheet('Sheet 1', function($sheet) use($users) {
+                $sheet->fromArray($users);
+            });
+        })->export('xls');
+
+        return Redirect::back();
+    }
+
+    /**
+     * Get CSV report of transactions
+     *
+     * @return Redirect
+     */
+    public function csvTransactions()
+    {
+        $transactions = Account::all();
+        Excel::create('transactions', function($excel) use($transactions) {
+            $excel->sheet('Sheet 1', function($sheet) use($transactions) {
+                $sheet->fromArray($transactions);
+            });
+        })->export('xls');
+
+        return Redirect::back();
     }
 }

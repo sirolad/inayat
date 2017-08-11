@@ -10,7 +10,8 @@
         "guzzlehttp/guzzle": "^6.3",
         "jrm2k6/cloudder": "^0.4.0",
         "laravel/framework": "5.4.*",
-        "laravel/tinker": "~1.0"
+        "laravel/tinker": "~1.0",
+        "maatwebsite/excel": "~2.1.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
