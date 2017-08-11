@@ -207,19 +207,13 @@ class AdminController extends Controller
      */
     public function getReports(Request $request)
     {
-        if (!$request->query()) {
-            $transactions = Account::all();
-            $credits = Account::where('type', 'credit')->where('status', Account::STATUS_ACTIVE);
-            $credit = $credits->sum('amount');
-            $debits = Account::where('type', 'debit')->where('status', Account::STATUS_ACTIVE);
-            $debit = $debits->sum('amount');
-            $balance = $credit - $debit;
-
-            return view('admin.reports', compact('transactions','credit', 'debit', 'balance'));
-        }
-
         $query = $request->query();
         $transaction = $query['transaction'];
+
+        if (!$request->query() || $transaction == 'all') {
+            return $this->getAllReports();
+        }
+
         //$type = $query['type'];
         $sort_type = [
             'credit' => 'credit',
@@ -235,7 +229,10 @@ class AdminController extends Controller
             'ramadan' => 'ramadan'
         ];
 
-        $transactions = Account::where('status', Account::STATUS_ACTIVE)->where('transaction', $sort_type[$transaction])->get();
+        $type = ucfirst($sort_type[$transaction]);
+        $transactions = Account::where('status', Account::STATUS_ACTIVE)
+        ->where('transaction', $sort_type[$transaction])
+        ->paginate(15);
         $credits = Account::where('type', 'credit')->where('status', Account::STATUS_ACTIVE)
             ->where('transaction', $sort_type[$transaction]);
         $credit = $credits->sum('amount');
@@ -244,6 +241,19 @@ class AdminController extends Controller
         $debit = $debits->sum('amount');
         $balance = $credit - $debit;
 
-        return view('admin.reports', compact('transactions', 'credit', 'debit', 'balance'));
+        return view('admin.reports', compact('transactions', 'credit', 'debit', 'balance', 'type'));
+    }
+
+    public function getAllReports()
+    {
+            $transactions = Account::paginate(15);
+            $credits = Account::where('type', 'credit')->where('status', Account::STATUS_ACTIVE);
+            $credit = $credits->sum('amount');
+            $debits = Account::where('type', 'debit')->where('status', Account::STATUS_ACTIVE);
+            $debit = $debits->sum('amount');
+            $balance = $credit - $debit;
+            $type = 'All';
+
+            return view('admin.reports', compact('transactions','credit', 'debit', 'balance', 'type'));
     }
 }

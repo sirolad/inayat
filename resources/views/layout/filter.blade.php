@@ -4,6 +4,7 @@
             <label for="email">Transaction:</label>
             <select class="form-control" name="transaction" id="sel1">
                 <option>Select</option>
+                <option value="all">All</option>
                 <option value="savings">Savings</option>
                 <option value="commodity">Commodity</option>
                 <option value="shares">Shares</option>
