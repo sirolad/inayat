@@ -308,4 +308,40 @@ class AdminController extends Controller
 
         return Redirect::back();
     }
+
+    /**
+     * [deleteMember description]
+     * @param  Request $request [description]
+     * @param  [type]  $id      [description]
+     * @return [type]           [description]
+     */
+    public function deleteMember(Request $request,$id)
+    {
+        $member = User::where('registration', $id);
+        if ($member) {
+            $member->delete();
+
+            return redirect('/admin/members')->with('success', 'Member Deleted successfully');
+        }
+
+        Redirect::back()->with('error', 'Opeartion Not Successful.');
+    }
+
+    /**
+     * [deleteTransaction description]
+     * @param  Request $request [description]
+     * @param  [type]  $id      [description]
+     * @return [type]           [description]
+     */
+    public function deleteTransaction(Request $request,$id)
+    {
+        $transaction = Account::findOrFail($id);
+        if ($transaction) {
+            $transaction->delete();
+
+            return redirect('/admin/all-reports')->with('success', 'Transaction Deleted successfully');
+        }
+
+        Redirect::back()->with('error', 'Opeartion Not Successful.');
+    }
 }

@@ -4,7 +4,8 @@
     <div class="jumbotron">
         <span class="pull-right">
             <a href="{{ route('excel.members') }}">
-                <button class="btn-info">Print Members</button>
+                <button class="btn-info"
+                data-toggle="tooltip" title="Print All Members">Print Members</button>
             </a>
         </span>
         <h2>All Members</h2>
@@ -31,8 +32,16 @@
                 @foreach($members as $member)
                 <tr class="info">
                     <td>{{ $member->id }}</td>
+                    @if(Auth::user()->isSuperAdmin())
+                    <td><a href="{{ route('delete.member', $member->registration)}}"
+                    data-toggle="tooltip" title="Delete Member">{{ $member->registration }}
+                    </a></td>
+                    @else
                     <td>{{ $member->registration }}</td>
-                    <td><a href="{{ route('admin.view', $member->registration) }}">{{ $member->fullName() }}</a></td>
+                    @endif
+                    <td><a href="{{ route('admin.view', $member->registration) }}"
+                    data-toggle="tooltip" title="View Member's Profile">
+                    {{ $member->fullName() }}</a></td>
                     <td>{{ $member->phone }}</td>
                     <td>{{ $member->email }}</td>
                     <td>{{ $member->permanentAddress }}</td>
@@ -45,7 +54,8 @@
                     @else
                         <td></td>
                     @endif
-                    <td><a href="{{ route('show.transaction', $member->id) }}" class="btn btn-primary">Transact</a></td>
+                    <td><a href="{{ route('show.transaction', $member->id) }}" class="btn btn-primary"
+                    data-toggle="tooltip" title="Make a Transaction for Member">Transact</a></td>
                 </tr>
                 @endforeach
                 </tbody>

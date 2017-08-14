@@ -46,6 +46,15 @@ class User extends Authenticatable
     }
 
     /**
+     * Check if role is SuperAdmin
+     *
+     * @return boolean
+     */
+    public function isSuperAdmin()
+    {
+        return $this->attributes['role'] = Role::DEVELOPER;
+    }
+    /**
      * Get User's fullName
      *
      * @return string

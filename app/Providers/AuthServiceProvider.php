@@ -28,5 +28,9 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('admin-can-see', function ($user) {
             return $user->isAdmin();
         });
+
+        Gate::define('super-admin-can-see', function ($user) {
+            return $user->isSuperAdmin();
+        });
     }
 }

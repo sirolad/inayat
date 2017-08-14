@@ -44,4 +44,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function () {
     Route::get('/all-reports', 'AdminController@getReports')->name('admin.reports');
     Route::get('/excel-members', 'AdminController@csvMembers')->name('excel.members');
     Route::get('/excel-transactions', 'AdminController@csvTransactions')->name('excel.transactions');
+    Route::get('/delete-transaction/{id}', 'AdminController@deleteTransaction')->name('delete.transaction');
+    Route::get('/delete-member/{id}', 'AdminController@deleteMember')->name('delete.member');
 });
