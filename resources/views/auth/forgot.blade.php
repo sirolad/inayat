@@ -33,7 +33,7 @@
 
                       <button type="submit" name="go" class="btn btn-lg btn-primary btn-block">Reset Password</button>
                       <div>
-                         <a href="{{ route('index') }}">Login</a>
+                         <b><a href="{{ route('index') }}">Login</a></b>
                       </div>
 
                     </form>

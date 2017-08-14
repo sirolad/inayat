@@ -34,7 +34,7 @@
                       <input type="password" class="form-control input-lg" id="password" placeholder="Password" name="password" required="" />
                       <button type="submit" name="go" class="btn btn-lg btn-primary btn-block">Log in</button>
                       <div>
-                         <a href="{{ route('forgot') }}">Forgot password</a>
+                         <b><a href="{{ route('forgot') }}">Forgot password</a></b>
                       </div>
 
                     </form>

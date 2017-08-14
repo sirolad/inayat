@@ -11,7 +11,7 @@
             <div class="form-group">
                 <label for="registration" class="col-4 col-form-label">Registration Id</label>
                 <div class="col-10">
-                    <input class="form-control" type="tel" value="" id="" name="registration" required>
+                    <input class="form-control" placeholder="AMRI-0020-2016" type="tel" value="" id="" name="registration" required>
                 </div>
             </div>
             <div class="form-group">
@@ -37,8 +37,8 @@
                 <div class="col-10">
                     <select class="custom-select form-control" name="sex">
                         <option selected>Select</option>
-                        <option value="male">male</option>
-                        <option value="female">female</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
                     </select>
                 </div>
             </div>
@@ -53,10 +53,10 @@
                 <div class="col-10">
                     <select class="custom-select form-control" name="maritalStatus">
                         <option selected>Select</option>
-                        <option value="married">married</option>
-                        <option value="single">single</option>
-                        <option value="divorced">divorced</option>
-                        <option value="widowed">widowed</option>
+                        <option value="married">Married</option>
+                        <option value="single">Single</option>
+                        <option value="divorced">Divorced</option>
+                        <option value="widowed">Widowed</option>
                     </select>
                 </div>
             </div>
