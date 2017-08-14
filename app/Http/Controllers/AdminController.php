@@ -199,6 +199,7 @@ class AdminController extends Controller
             $pay->transaction = $request->input('payment');
             $pay->status = Account::STATUS_ACTIVE;
             $pay->type = $request->input('type');
+            $pay->approver = Auth::user()->fullName();
             $pay->save();
 
             return redirect('/admin/members')->with('success', 'Transaction Registered');
