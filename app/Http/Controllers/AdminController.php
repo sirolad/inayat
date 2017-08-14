@@ -299,7 +299,12 @@ class AdminController extends Controller
      */
     public function csvTransactions()
     {
-        $transactions = Account::all();
+        // if (!$query || $query['transaction'] == 'all') {
+            $transactions = Account::all();
+        // } else {
+            // $transactions = Account::where('transaction', $type);
+        // }
+
         Excel::create('transactions', function($excel) use($transactions) {
             $excel->sheet('Sheet 1', function($sheet) use($transactions) {
                 $sheet->fromArray($transactions);

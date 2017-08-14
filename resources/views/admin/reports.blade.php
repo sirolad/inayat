@@ -3,9 +3,12 @@
     <div class="container">
         <div class="jumbotron">
         <span class="pull-right">
-            <a href="{{ route('excel.transactions') }}">
-                <button class="btn-info" data-toggle="tooltip" title="Print All Transactions">Print All Transaction</button>
+        {{-- <form method="post" action="{{ route('excel.transactions', $type) }}"> --}}
+        {{-- <input type="hidden" name="_token" value="{{ csrf_token() }}"> --}}
+            <a href="{{ route('excel.transactions', $type) }}">
+                <button class="btn-info" data-toggle="tooltip" title="Print {{ $type }} Transactions">Print {{ $type }} Transaction</button>
             </a>
+        </form>
         </span>
             <h3>Balance</h3>
             @include('layout.alerts')

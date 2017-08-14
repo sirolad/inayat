@@ -52,7 +52,7 @@ class User extends Authenticatable
      */
     public function isSuperAdmin()
     {
-        return $this->attributes['role'] = Role::DEVELOPER;
+        return $this->attributes['role'] == Role::DEVELOPER;
     }
     /**
      * Get User's fullName
