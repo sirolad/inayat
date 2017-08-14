@@ -13,7 +13,7 @@
             <li><a href="{{ route('admin.create') }}">Create Account</a></li>
             <li><a href="{{ route('admin.members') }}">View Members</a></li>
             <li>
-                <a data-toggle="dropdown">Reports</a>
+                <a data-toggle="dropdown" href="">Reports</a>
                 <ul class="dropdown-menu">
                     <li><a href="{{ route('admin.reports') }}">All Reports</a></li>
                 </ul>
