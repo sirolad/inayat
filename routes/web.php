@@ -46,4 +46,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function () {
     Route::get('/excel-transactions', 'AdminController@csvTransactions')->name('excel.transactions');
     Route::get('/delete-transaction/{id}', 'AdminController@deleteTransaction')->name('delete.transaction');
     Route::get('/delete-member/{id}', 'AdminController@deleteMember')->name('delete.member');
+    Route::get('/edit-member/{id}', 'AdminController@editMember')->name('edit.member');
+    Route::get('/edit-transaction/{id}', 'AdminController@editTransaction')->name('edit.transaction');
+    Route::post('update-member/{id}', 'AdminController@updateMember')->name('update.member');
+    Route::post('update-transaction/{id}', 'AdminController@updateTransaction')->name('update.transaction');
 });

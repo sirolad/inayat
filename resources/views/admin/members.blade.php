@@ -32,13 +32,9 @@
                 @foreach($members as $member)
                 <tr class="info">
                     <td>{{ $member->id }}</td>
-                    @if(Auth::user()->isSuperAdmin())
-                    <td><a href="{{ route('delete.member', $member->registration)}}"
-                    data-toggle="tooltip" title="Delete Member">{{ $member->registration }}
+                    <td><a href="{{ route('edit.member', $member->registration)}}"
+                    data-toggle="tooltip" title="Edit Member">{{ $member->registration }}
                     </a></td>
-                    @else
-                    <td>{{ $member->registration }}</td>
-                    @endif
                     <td><a href="{{ route('admin.view', $member->registration) }}"
                     data-toggle="tooltip" title="View Member's Profile">
                     {{ $member->fullName() }}</a></td>

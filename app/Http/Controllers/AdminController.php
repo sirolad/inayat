@@ -349,4 +349,80 @@ class AdminController extends Controller
 
         Redirect::back()->with('error', 'Opeartion Not Successful.');
     }
+
+    /**
+     * [editMember description]
+     * @param  [type] $id [description]
+     * @return [type]     [description]
+     */
+    public function editMember($id)
+    {
+        $member = User::where('registration', $id)->first();
+
+        return view('admin.profile', compact('member'));
+    }
+
+    /**
+     * [updateMember description]
+     * @param  Request $request [description]
+     * @param  [type]  $id      [description]
+     * @return [type]           [description]
+     */
+    public function updateMember(Request $request, $id)
+    {
+        try{
+            $member = User::find($id);
+            $member->surname = $request->input('surname');
+            $member->firstName = $request->input('first-name');
+            $member->middleName = $request->input('middle-name');
+            $member->phone = $request->input('phone');
+            $member->email = $request->input('email');
+            $member->address = $request->input('address');
+            $member->permanentAddress = $request->input('permanentAddress');
+            $member->occupation = $request->input('occupation');
+            $member->save();
+
+            return Redirect::back()->with('success', 'Profile Updated Successfully');
+        } catch(Exception $e) {
+            return Redirect::back()->with('danger', 'Operation Not Successful!');
+        }
+    }
+
+    /**
+     * [editTransaction description]
+     * @param  [type] $id [description]
+     * @return [type]     [description]
+     */
+    public function editTransaction($id)
+    {
+        $transaction = Account::where('id', $id)->first();
+
+        return view('admin.edit', compact('transaction'));
+    }
+
+    /**
+     * [updateTransaction description]
+     * @param  Request $request [description]
+     * @param  [type]  $id      [description]
+     * @return [type]           [description]
+     */
+    public function updateTransaction(Request $request, $id)
+    {
+        try {
+            $transaction = Account::where('id', $id)->first();
+            $transaction->user_id = $transaction->user_id;
+            $transaction->amount = $request->input('amount');
+            $transaction->reference = $request->input('reference');
+            $transaction->transaction = $request->input('transaction');
+            $transaction->status = Account::STATUS_ACTIVE;
+            $transaction->type = $request->input('type');
+            $transaction->approver = Auth::user()->fullName();
+            $transaction->save();
+
+            return Redirect::back()->with('success', 'Transaction Registered');
+        } catch (\Exception $e) {
+            Bugsnag::notifyException($e);
+            return back()->with('danger', 'Operation Failed');
+        }
+    }
 }

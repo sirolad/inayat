@@ -40,16 +40,12 @@
                         @endif
                             <td> </td>
                             <td>{{ $transaction->user->fullName() }}</td>
-                            @if(Auth::user()->isSuperAdmin())
                             <td>
-                            <a href="{{ route('delete.transaction', $transaction->id) }}"
-                            data-toggle="tooltip" title="Delete Transaction">
+                            <a href="{{ route('edit.transaction', $transaction->id) }}"
+                            data-toggle="tooltip" title="Edit Transaction">
                                 {{ number_format($transaction->amount) }}
                             </a>
                             </td>
-                            @else
-                            <td>{{ number_format($transaction->amount) }}</td>
-                            @endif
                             <td>{{ $transaction->reference }}</td>
                             <td>{{ ucfirst($transaction->transaction) }}</td>
                             <td>{{ $transaction->type }}</td>
