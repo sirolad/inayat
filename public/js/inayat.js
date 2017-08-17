@@ -1,7 +1,7 @@
 /**"
  * Created by Sirolad on 17/04/2017.
  */
-$(".alert").show("slow").fadeOut(5000);
+$(".alert").show("slow").fadeOut(9000);
 
 $(".verify").click(function () {
     "use strict";

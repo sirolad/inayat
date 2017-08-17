@@ -62,7 +62,7 @@ class AdminController extends Controller
             'surname' => 'required|string',
             'first-name' => 'required|string',
             'middle-name' => 'required|string',
-            'phone' => 'required|unique:users|integer|size:11',
+            'phone' => 'required|unique:users|digits:11',
             'email' => 'required|unique:users|string',
             'sex'  => 'required|string',
             'dob' => 'required|date',
@@ -74,7 +74,7 @@ class AdminController extends Controller
             'name' => 'required|string',
             'relationship' => 'required|string',
             'kin-address' => 'required|string',
-            'kin-phone' => 'required|integer'
+            'kin-phone' => 'required|digits:11'
         ]);
 
         $user = new User();
