@@ -11,31 +11,31 @@
             <div class="form-group">
                 <label for="registration" class="col-4 col-form-label">Registration Id</label>
                 <div class="col-10">
-                    <input class="form-control" placeholder="AMRI-0020-2016" type="tel" value="" id="" name="registration" required>
+                    <input class="form-control" placeholder="AMRI-0020-2016" type="text" value="" id="" name="registration" required>
                 </div>
             </div>
             <div class="form-group">
                 <label for="surname" class="col-4 col-form-label">Surname</label>
                 <div class="col-10">
-                    <input class="form-control" type="text" value="" id="" name="surname" required>
+                    <input class="form-control" type="text" value="" id="" name="surname" pattern="^[a-zA-Z ]*$" title="Text only" required>
                 </div>
             </div>
             <div class="form-group">
                 <label for="first name" class="col-4 col-form-label">First Name</label>
                 <div class="col-10">
-                    <input class="form-control" type="text" value="" id="" name="first-name" required>
+                    <input class="form-control" type="text" value="" id="" name="first-name" pattern="^[a-zA-Z ]*$" title="Text only" required>
                 </div>
             </div>
             <div class="form-group">
                 <label for="middle name" class="col-4 col-form-label">Middle Name</label>
                 <div class="col-10">
-                    <input class="form-control" type="text" value="" id="" name="middle-name" required>
+                    <input class="form-control" type="text" value="" id="" name="middle-name" pattern="^[a-zA-Z ]*$" title="Text only" required>
                 </div>
             </div>
             <div class="form-group">
                 <label for="middle name" class="col-2 col-form-label">Sex</label>
                 <div class="col-10">
-                    <select class="custom-select form-control" name="sex">
+                    <select class="custom-select form-control" name="sex" required>
                         <option selected>Select</option>
                         <option value="male">Male</option>
                         <option value="female">Female</option>
@@ -51,7 +51,7 @@
             <div class="form-group">
                 <label for="middle name" class="col-2 col-form-label">Marital Status</label>
                 <div class="col-10">
-                    <select class="custom-select form-control" name="maritalStatus">
+                    <select class="custom-select form-control" name="maritalStatus" required>
                         <option selected>Select</option>
                         <option value="married">Married</option>
                         <option value="single">Single</option>
@@ -75,7 +75,7 @@
             <div class="form-group">
                 <label for="phone" class="col-12 col-form-label">Phone Number</label>
                 <div class="col-10">
-                    <input class="form-control" type="tel" value="" id="" name="phone" required>
+                    <input class="form-control" type="number" value="" id="" name="phone" min="11" required>
                 </div>
             </div>
             <div class="form-group">
@@ -87,7 +87,7 @@
             <div class="form-group">
                 <label for="occupation" class="col-12 col-form-label">Occupation</label>
                 <div class="col-10">
-                    <input class="form-control" type="text" value="" id="" name="occupation" required>
+                    <input class="form-control" type="text" value="" id="" name="occupation" pattern="^[a-zA-Z ]*$" title="Text only" required>
                 </div>
             </div>
             <hr>

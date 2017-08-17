@@ -1,7 +1,7 @@
 /**"
  * Created by Sirolad on 17/04/2017.
  */
-$(".alert").fadeOut(300);
+$(".alert").show("slow").fadeOut(5000);
 
 $(".verify").click(function () {
     "use strict";
@@ -46,5 +46,3 @@ $(".decline").click(function () {
 $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip();
 });
-
-$('div.alert').delay(9000);

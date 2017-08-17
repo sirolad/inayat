@@ -57,6 +57,26 @@ class AdminController extends Controller
      */
     public function createAccount(Request $request)
     {
+        $this->validate($request, [
+            'registration' => 'required|unique:users|string',
+            'surname' => 'required|string',
+            'first-name' => 'required|string',
+            'middle-name' => 'required|string',
+            'phone' => 'required|unique:users|integer|size:11',
+            'email' => 'required|unique:users|string',
+            'sex'  => 'required|string',
+            'dob' => 'required|date',
+            'maritalStatus' => 'required|string',
+            'address' => 'required|string',
+            'permanentAddress' => 'required|string',
+            'occupation' => 'required|string',
+            'role' => 'required|integer',
+            'name' => 'required|string',
+            'relationship' => 'required|string',
+            'kin-address' => 'required|string',
+            'kin-phone' => 'required|integer'
+        ]);
+
         $user = new User();
 
         if (User::where('phone', '=', $request->get('phone'))->exists()) {
