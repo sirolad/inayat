@@ -99,7 +99,6 @@ class AdminController extends Controller
         $user->permanentAddress = $request->input('permanentAddress');
         $user->occupation = $request->input('occupation');
         $user->status = User::ACTIVE;
-        $user->image = '';
         $user->password = Hash::make($password);
         $user->role = $request->input('role');
         $user->save();
@@ -178,7 +177,7 @@ class AdminController extends Controller
     {
         if (isset($id)) {
             $user = User::where('registration', $id)->first();
-            $transactions = Account::where('user_id', '=', $user->id)->get();
+            $transactions = Account::where('user_id', $user->id)->get();
             $credits = Account::where('type', 'credit')->where('status', Account::STATUS_ACTIVE)->where('user_id', $user->id);
             $credit = $credits->sum('amount');
             $debits = Account::where('type', 'debit')->where('status', Account::STATUS_ACTIVE)->where('user_id', $user->id);

@@ -85,7 +85,7 @@ class User extends Authenticatable
      */
     private function getAvatarFromGravatar()
     {
-        return 'https://www.gravatar.com/avatar/'.md5(strtolower(trim($this->email))).'?d=mm&s=500';
+        return 'http://www.gravatar.com/avatar/'.md5(strtolower(trim($this->email))).'?d=mm&s=500';
     }
 
     /**
