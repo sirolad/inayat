@@ -397,6 +397,7 @@ class AdminController extends Controller
             $member->phone = $request->input('phone');
             $member->email = $request->input('email');
             $member->address = $request->input('address');
+            $member->maritalStatus = $request->input('maritalStatus');
             $member->permanentAddress = $request->input('permanentAddress');
             $member->occupation = $request->input('occupation');
             $member->save();
