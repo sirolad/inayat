@@ -23,7 +23,7 @@
                     <label for="transaction" class="col-4 col-form-label">Transaction</label>
                     <div class="col-10">
                         <select class="custom-select form-control" name="payment">
-                            <option selected>Select Transaction</option>
+                            <option>Select Transaction</option>
                             <option value="shares">Shares</option>
                             <option value="savings">Savings</option>
                             <option value="commodity">Commodity</option>
@@ -40,7 +40,7 @@
                     <label for="type" class="col-4 col-form-label">Type</label>
                     <div class="col-10">
                         <select class="custom-select form-control" name="type">
-                            <option selected>Select Type</option>
+                            <option>Select Type</option>
                             <option value="credit">Credit</option>
                             <option value="debit">Debit</option>
                         </select>

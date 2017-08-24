@@ -36,7 +36,7 @@
                 <label for="middle name" class="col-2 col-form-label">Sex</label>
                 <div class="col-10">
                     <select class="custom-select form-control" name="sex" required>
-                        <option selected>Select</option>
+                        <option>Select</option>
                         <option value="male">Male</option>
                         <option value="female">Female</option>
                     </select>
@@ -52,7 +52,7 @@
                 <label for="middle name" class="col-2 col-form-label">Marital Status</label>
                 <div class="col-10">
                     <select class="custom-select form-control" name="maritalStatus" required>
-                        <option selected>Select</option>
+                        <option>Select</option>
                         <option value="married">Married</option>
                         <option value="single">Single</option>
                         <option value="divorced">Divorced</option>
