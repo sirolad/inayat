@@ -153,6 +153,12 @@ class UsersController extends Controller
      */
     public function makeTransaction(Request $request)
     {
+        $this->validate($request, [
+            'amount' => 'required|integer',
+            'reference' => 'required|string',
+            'payment' => 'required|string',
+        ]);
+
         try {
             $pay = new Account();
             $pay->user_id = Auth::user()->getAuthIdentifier();

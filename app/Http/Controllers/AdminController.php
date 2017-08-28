@@ -210,6 +210,13 @@ class AdminController extends Controller
      */
     public function makeTransaction(Request $request,$id)
     {
+        $this->validate($request, [
+            'amount' => 'required|integer',
+            'reference' => 'required|string',
+            'payment' => 'required|string',
+            'type' => 'required|string',
+        ]);
+
         try {
             $pay = new Account();
             $pay->user_id = $id;
