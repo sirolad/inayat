@@ -111,7 +111,7 @@ class AdminController extends Controller
         $kin->user_id = $user->getAttribute('id');
         $kin->save();
 
-        Mail::to($email)->send(new RegistrationActive($user, $password));
+        Mail::to($email)->cc('surajudeen.akande@andela.com')->send(new RegistrationActive($user, $password));
 
         return redirect('/admin')->with('success', 'Member Account Successfully Created!');
     }

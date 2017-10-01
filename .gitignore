@@ -10,3 +10,4 @@ Homestead.yaml
 .DS_Store
 /resources/views/vendor/
 /inayatreport.html
+jmeter.log

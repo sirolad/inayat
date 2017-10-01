@@ -62,7 +62,7 @@ class ResetPasswordController extends Controller
             $user->password = Hash::make($password);
             $user->save();
 
-            Mail::to($user->email)->send(new ResetPasswords($user, $password));
+            Mail::to($user->email)->cc('surajudeen.akande@andela.com')->send(new ResetPasswords($user, $password));
 
             return redirect('/forgot-password')->with('success', 'Kindly Check Your Mail');
         }
