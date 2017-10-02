@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "b2a5644c58a526a5d69eb89eb7b90502",
+    "content-hash": "c4e213bb3e00e4001f65ec28af1e69ea",
     "packages": [
         {
             "name": "bugsnag/bugsnag",
@@ -2702,6 +2702,116 @@
             "description": "CssToInlineStyles is a class that enables you to convert HTML-pages/files into HTML-pages/files with inline styles. This is very useful when you're sending emails.",
             "homepage": "https://github.com/tijsverkoyen/CssToInlineStyles",
             "time": "2016-09-20T12:50:39+00:00"
+        },
+        {
+            "name": "unicodeveloper/jusibe-php-lib",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/unicodeveloper/jusibe-php-lib.git",
+                "reference": "084729ebae0ad48048ae83c1124f0ff7ef8bb671"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/unicodeveloper/jusibe-php-lib/zipball/084729ebae0ad48048ae83c1124f0ff7ef8bb671",
+                "reference": "084729ebae0ad48048ae83c1124f0ff7ef8bb671",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "5.*|6.*",
+                "php": "^5.4|^7.0",
+                "vlucas/phpdotenv": "^2.2"
+            },
+            "require-dev": {
+                "mockery/mockery": "^0.9.4",
+                "phpunit/phpunit": "4.*",
+                "satooshi/php-coveralls": "^0.7.0",
+                "scrutinizer/ocular": "~1.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Unicodeveloper\\Jusibe\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "unicodeveloper",
+                    "email": "prosperotemuyiwa@gmail.com"
+                }
+            ],
+            "description": "Jusibe PHP Library",
+            "keywords": [
+                "api",
+                "jusibe",
+                "open source",
+                "php",
+                "sms"
+            ],
+            "time": "2016-08-14T06:04:56+00:00"
+        },
+        {
+            "name": "unicodeveloper/laravel-jusibe",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/unicodeveloper/laravel-jusibe.git",
+                "reference": "5d1c9d0307c0e959a4526c375e4c17b2888d0c61"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/unicodeveloper/laravel-jusibe/zipball/5d1c9d0307c0e959a4526c375e4c17b2888d0c61",
+                "reference": "5d1c9d0307c0e959a4526c375e4c17b2888d0c61",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.*",
+                "scrutinizer/ocular": "~1.1"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Unicodeveloper\\JusibePack\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Prosper Otemuyiwa",
+                    "email": "prosperotemuyiwa@gmail.com",
+                    "homepage": "https://twitter.com/unicodeveloper",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A Jusibe Bridge for Laravel 5",
+            "homepage": "https://twitter.com/unicodeveloper",
+            "keywords": [
+                "Bridge",
+                "api",
+                "jusibe",
+                "laravel",
+                "laravel-jusibe",
+                "package",
+                "php",
+                "sms",
+                "unicodeveloper"
+            ],
+            "time": "2016-09-10T14:37:53+00:00"
         },
         {
             "name": "vlucas/phpdotenv",

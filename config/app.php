@@ -179,6 +179,7 @@ return [
         Bugsnag\BugsnagLaravel\BugsnagServiceProvider::class,
         JD\Cloudder\CloudderServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
+        Unicodeveloper\JusibePack\JusibeServiceProvider::class
     ],
 
     /*
@@ -230,6 +231,7 @@ return [
         'Bugsnag' => Bugsnag\BugsnagLaravel\Facades\Bugsnag::class,
         'Cloudder'  => JD\Cloudder\Facades\Cloudder::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
+        'Jusibe' => Unicodeveloper\JusibePack\Facades\Jusibe::class,
     ],
 
 ];

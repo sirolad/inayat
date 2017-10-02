@@ -9,11 +9,13 @@ use Inayat\Kin;
 use Inayat\Role;
 use Inayat\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Inayat\Mail\RegistrationActive;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
+use Unicodeveloper\JusibePack\Facades\Jusibe;
 
 class AdminController extends Controller
 {
@@ -112,8 +114,26 @@ class AdminController extends Controller
         $kin->save();
 
         Mail::to($email)->cc('surajudeen.akande@andela.com')->send(new RegistrationActive($user, $password));
+        $message = "Dear $user->firstName, Your account has been registered on Al-inayat. 
+        Password: $password";
+        $this->sendMessage($user->phone, $message);
 
         return redirect('/admin')->with('success', 'Member Account Successfully Created!');
+    }
+
+    public function sendMessage($phone, $message)
+    {
+        $payload = [
+            'to' => $phone,
+            'from' => 'Al-Inayat',
+            'message' => $message
+        ];
+
+        try {
+            Jusibe::sendSMS($payload)->getResponse();
+        } catch(\Exception $e) {
+            echo $e->getMessage();
+        }
     }
 
     /**
