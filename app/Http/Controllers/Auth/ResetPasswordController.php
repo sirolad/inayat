@@ -5,11 +5,11 @@ namespace Inayat\Http\Controllers\Auth;
 use Inayat\User;
 use Illuminate\Http\Request;
 use Inayat\Mail\ResetPasswords;
-use Unicodeveloper\Jusibe\Jusibe;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Hash;
 use Inayat\Http\Controllers\Controller;
+use Unicodeveloper\JusibePack\Facades\Jusibe;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 
 class ResetPasswordController extends Controller
@@ -57,25 +57,29 @@ class ResetPasswordController extends Controller
 
         $phone = $request->input('phone');
         $user = User::where('phone', '=', $phone);
-        DB::transaction(function () use($user, $phone) {
-            if ($user->exists()) {
+        if ($user->exists()) {
+            DB::transaction(function () use($user, $phone) {
                 $password = str_random(8);
                 $user = $user->first();
                 $user->password = Hash::make($password);
+                $user->reset_count += 1;
                 $user->save();
-                $message = "Dear $user->firstName, Your password reset was successful. 
-                Password: $password";
                 Mail::to($user->email)->cc('surajudeen.akande@andela.com')->send(new ResetPasswords($user, $password));
-                $this->sendSMS($phone, $message);
-                return redirect('/forgot-password')->with('success', 'Kindly Check Your Mail');
-            }
-        });
 
+                $message = "Dear $user->firstName, Your password reset was successful. New Password: $password";
 
-        return redirect('/')->with('danger', 'User does not exist!');
+                if ($user->reset_count <= 3) {
+                    $this->sendMessage($phone, $message);
+                }
+            });
+
+            return redirect('/forgot-password')->with('success', 'Kindly Check Your Mail and Phone or  Contact the Admin');
+        } else {
+            return redirect('/')->with('danger', 'User does not exist!');
+        }
     }
 
-    public function sendSMS($phone, $message)
+    public function sendMessage($phone, $message)
     {
         $payload = [
             'to' => $phone,

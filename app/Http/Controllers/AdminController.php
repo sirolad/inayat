@@ -9,7 +9,6 @@ use Inayat\Kin;
 use Inayat\Role;
 use Inayat\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
 use Inayat\Mail\RegistrationActive;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Hash;
