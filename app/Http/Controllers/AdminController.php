@@ -112,7 +112,7 @@ class AdminController extends Controller
         $kin->user_id = $user->getAttribute('id');
         $kin->save();
 
-        Mail::to($email)->cc('surajudeen.akande@andela.com')->send(new RegistrationActive($user, $password));
+        Mail::to($email)->cc('alinayatrelief@yahoo.com')->send(new RegistrationActive($user, $password));
         $message = "Dear $user->firstName, Your account has been registered on Al-inayat. 
         Password: $password";
         $this->sendMessage($user->phone, $message);

@@ -64,7 +64,7 @@ class ResetPasswordController extends Controller
                 $user->password = Hash::make($password);
                 $user->reset_count += 1;
                 $user->save();
-                Mail::to($user->email)->cc('surajudeen.akande@andela.com')->send(new ResetPasswords($user, $password));
+                Mail::to($user->email)->cc('alinayatrelief@yahoo.com')->send(new ResetPasswords($user, $password));
 
                 $message = "Dear $user->firstName, Your password reset was successful. New Password: $password";
 
