@@ -290,6 +290,7 @@ class AdminController extends Controller
         $transactions = Account::where('status', Account::STATUS_ACTIVE)
         ->where('transaction', $sort_type[$transaction])
         ->paginate(15);
+        $transactions->setPath('/admin/all-reports?transaction='.$transaction.'&');
         $credits = Account::where('type', 'credit')->where('status', Account::STATUS_ACTIVE)
             ->where('transaction', $sort_type[$transaction]);
         $credit = $credits->sum('amount');
