@@ -60,7 +60,7 @@
             <div class="row text-center">
            <div class="col-lg-12">
               <ul class="pagination">
-                {!! str_replace("&amp;?page", "&amp;page", $transactions->links() !!}
+                {!! str_replace("&amp;?page", "&amp;page", $transactions->links()) !!}
               </ul>
            </div>
         </div>
