@@ -22,3 +22,16 @@ $factory->define(Inayat\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->define(Inayat\Account::class, function (Faker\Generator $faker) {
+
+    return [
+        'user_id' => 1,
+        'amount' => $faker->randomNumber(4),
+        'reference' => $faker->word,
+        'transaction' => 'savings',
+        'status' => 'active',
+        'type' => 'credit',
+        'approver' => 'Mogaji Aremu'
+    ];
+});

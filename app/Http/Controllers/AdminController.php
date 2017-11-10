@@ -288,9 +288,8 @@ class AdminController extends Controller
 
         $type = ucfirst($sort_type[$transaction]);
         $transactions = Account::where('status', Account::STATUS_ACTIVE)
-        ->where('transaction', $sort_type[$transaction])
-        ->paginate(15);
-        $transactions->setPath('/admin/all-reports?transaction='.$transaction.'&');
+        ->where('transaction', $sort_type[$transaction])->paginate(15);
+        $transactions->setPath('/admin/all-reports?transaction='.$transaction);
         $credits = Account::where('type', 'credit')->where('status', Account::STATUS_ACTIVE)
             ->where('transaction', $sort_type[$transaction]);
         $credit = $credits->sum('amount');
@@ -310,6 +309,7 @@ class AdminController extends Controller
     public function getAllReports()
     {
             $transactions = Account::paginate(15);
+            $transactions->setPath('/admin/all-reports?transaction='.'all');
             $credits = Account::where('type', 'credit')->where('status', Account::STATUS_ACTIVE);
             $credit = $credits->sum('amount');
             $debits = Account::where('type', 'debit')->where('status', Account::STATUS_ACTIVE);

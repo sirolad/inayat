@@ -13,7 +13,7 @@
             <h3>Balance</h3>
             @include('layout.alerts')
             <div class="table-responsive">
-                <table class="css-serial table">
+                <table class="table">
                     <p>The Current Balance is <b>{{ 'N' . number_format($balance) }}</b>.</p>
                     <br>
                     <h3>{{ $type }} Transactions</h3>
@@ -38,7 +38,7 @@
                         @else
                         <tr class="success" id="row{{ $transaction->id }}">
                         @endif
-                            <td> </td>
+                            <td>{{ $transaction->id }}</td>
                             <td>{{ $transaction->user->fullName() }}</td>
                             <td>
                             <a href="{{ route('edit.transaction', $transaction->id) }}"
@@ -60,7 +60,8 @@
             <div class="row text-center">
            <div class="col-lg-12">
               <ul class="pagination">
-                {!! str_replace("&amp;?page", "&amp;page", $transactions->render()) !!}
+                {!! str_replace("&amp;?page", "&amp;page", $transactions->links()) !!}
+                {{-- {{ $transactions->links() }} --}}
               </ul>
            </div>
         </div>

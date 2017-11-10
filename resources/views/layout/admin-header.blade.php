@@ -15,7 +15,7 @@
             <li>
                 <a data-toggle="dropdown" href="">Reports</a>
                 <ul class="dropdown-menu">
-                    <li><a href="{{ route('admin.reports') }}">All Reports</a></li>
+                    <li><a href="{{ route('admin.reports', 'transaction=all') }}">All Reports</a></li>
                 </ul>
             </li>
         </ul>

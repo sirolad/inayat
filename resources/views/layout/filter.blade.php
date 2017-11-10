@@ -3,7 +3,7 @@
         <div class="form-group col-xs-4 col-md-4">
             <label for="email">Transaction:</label>
             <select class="form-control" name="transaction" id="sel1">
-                <option>Select</option>
+                <option value="select">Select</option>
                 <option value="all">All</option>
                 <option value="savings">Savings</option>
                 <option value="commodity">Commodity</option>
@@ -27,7 +27,7 @@
         </div>
         <div class="form-group">
             <br>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary" id="filter-id">Submit</button>
         </div>
     </form>
 </div>

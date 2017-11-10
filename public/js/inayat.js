@@ -45,4 +45,16 @@ $(".decline").click(function () {
 
 $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip();
+
+    if($("#sel1").val() == 'select'){
+        $("#filter-id").attr('disabled', true);
+    }
+
+    $('#sel1').on('change', function() {
+          if($(this).val() == 'select'){
+            $("#filter-id").attr('disabled', true);
+        } else {
+            $("#filter-id").attr('disabled', false);
+        }
+    })
 });
